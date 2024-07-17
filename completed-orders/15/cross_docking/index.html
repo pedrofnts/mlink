@@ -1,0 +1,391 @@
+html
+<html class="chrome fontawesome-i2svg-active fontawesome-i2svg-complete" data-navbar-horizontal-shape="slim" data-navigation-type="horizontal" dir="ltr" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MLink - pedidos finalizados</title>
+<link href="https://meconect.app/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://meconect.app/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://meconect.app/img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="https://meconect.app/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://meconect.app/img/imanifest.json" rel="manifest"/>
+<link href="https://meconect.app/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<script src="https://meconect.app/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://meconect.app/js/simplebar.min.js"></script>
+<script src="https://meconect.app/js/config.js"></script>
+<link href="https://meconect.app/css/choices.min.css" rel="stylesheet">
+<link href="https://meconect.app/css/dhtmlxgantt.css" rel="stylesheet">
+<link href="https://meconect.app/css/flatpickr.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://meconect.app/css/simplebar.min.css" rel="stylesheet"/>
+<link href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" rel="stylesheet"/>
+<link href="https://meconect.app/css/theme-rtl.min.css" id="style-rtl" rel="stylesheet" type="text/css"/>
+<link href="https://meconect.app/css/theme.min.css" id="style-default" rel="stylesheet" type="text/css"/>
+<link href="https://meconect.app/css/user-rtl.min.css" id="user-style-rtl" rel="stylesheet" type="text/css"/>
+<link href="https://meconect.app/css/user.min.css" id="user-style-default" rel="stylesheet" type="text/css"/>
+<link href="https://meconect.app/css/style.css" id="user-style-default" rel="stylesheet" type="text/css"/>
+<script src="https://meconect.app/js/j/jquery.js?v=25" type="text/javascript"></script>
+<script src="https://meconect.app/js/j/jquery.mask.min.js?v=25" type="text/javascript"></script>
+<script src="https://meconect.app/js/j/mask-medel.js?v=25" type="text/javascript"></script>
+</link></link></link></link></link></head>
+<body>
+<main class="main" id="top">
+<nav class="navbar navbar-top navbar-slim justify-content-between fixed-top navbar-expand-lg" id="navbarTopSlim">
+<div class="navbar-logo">
+<button aria-controls="navbarTopCollapse" aria-expanded="false" aria-label="Toggle Navigation" class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" data-bs-target="#navbarTopCollapse" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggle-icon"><span class="toggle-line"></span></span>
+</button>
+<a class="navbar-brand navbar-brand" style="color: #1d5fbb;">MLink <span class="text-body-highlight d-none d-sm-inline">vendedor</span></a>
+</div>
+<div class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center" id="navbarTopCollapse">
+<ul class="navbar-nav navbar-nav-top" data-dropdown-on-hover="data-dropdown-on-hover">
+<li class="nav-item dropdown">
+<a aria-haspopup="true" class="nav-link lh-1" data-bs-auto-close="outside" href="/dashboard/"><span class="uil fs-8 me-2 uil-create-dashboard"></span>Dashboard</a>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle lh-1" data-bs-auto-close="outside" data-bs-toggle="dropdown" href="/completed-orders/15/cross_docking/" role="button"><span class="uil fs-8 me-2 uil-invoice"></span>Pedidos</a>
+<ul class="dropdown-menu navbar-dropdown-caret">
+<li>
+<a class="dropdown-item" href="/pending-orders/120/">
+<div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="chevron-right"></span>pedidos pendentes</div>
+</a>
+</li>
+<li>
+<a class="dropdown-item" href="/order-picking/30/">
+<div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="chevron-right"></span>pedidos em preparação</div>
+</a>
+</li>
+<li>
+<a class="dropdown-item" href="/orders-shipped/30/">
+<div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="chevron-right"></span>pedidos despachados</div>
+</a>
+</li>
+<li>
+<a class="dropdown-item" href="/completed-orders/7/">
+<div class="dropdown-item-wrapper"><span class="me-2 uil" data-feather="chevron-right"></span>pedidos finalizados</div>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a aria-haspopup="true" class="nav-link lh-1" data-bs-auto-close="outside" href="/my-ads/"><span class="uil fs-8 me-2 uil-file-graph"></span>Anúncios</a>
+</li>
+<li class="nav-item dropdown">
+<a aria-haspopup="true" class="nav-link lh-1" data-bs-auto-close="outside" href="/catalog/"><span class="uil fs-8 me-2 uil-box"></span>Catálogo</a>
+</li>
+<li class="nav-item dropdown">
+<a aria-haspopup="true" class="nav-link lh-1" data-bs-auto-close="outside" href="/finance/7/"><span class="uil fs-8 me-2 uil-chart-pie"></span>Finanças</a>
+</li>
+<li class="nav-item dropdown">
+<a aria-haspopup="true" class="nav-link lh-1" data-bs-auto-close="outside" href="/messages/">Mensagens <span class="badge bg-primary-dark ms-2">0</span></a>
+</li>
+</ul>
+</div>
+<ul class="navbar-nav navbar-nav-icons flex-row">
+<li class="nav-item">
+<div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim">
+<a href="/cart/">
+<span data-feather="shopping-cart"></span> carrinho
+        </a>
+</div>
+</li>
+<li class="nav-item">
+<div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim">
+<span class="badge badge-phoenix badge-phoenix-warning" data-bs-placement="bottom" data-bs-toggle="tooltip" title="anúncios disponíveis">49 anúncios</span>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="nav-link lh-1 pe-0 white-space-nowrap" data-bs-auto-close="outside" data-bs-toggle="dropdown" href="/completed-orders/15/cross_docking/" id="navbarDropdownUser" role="button">
+        FERNANDO AUGUSTO CAR <span class="fa-solid fa-chevron-down fs-10"></span>
+</a>
+<div aria-labelledby="navbarDropdownUser" class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border">
+<div class="card position-relative border-0">
+<div class="card-body p-0">
+<div class="text-center pt-4 pb-3">
+<div class="avatar avatar-xl">
+<img alt="" class="rounded-circle" src="https://meconect.app/img/149071.png"/>
+</div>
+<h6 class="mt-2 text-body-emphasis">FERNANDO AUGUSTO CAR</h6>
+</div>
+<div class="mb-3 mx-3"></div>
+</div>
+<div class="card-footer p-0 border-top border-translucent">
+<div class="overflow-auto scrollbar" style="height: 10rem;">
+<ul class="nav d-flex flex-column mb-2 pb-1">
+<li class="nav-item">
+<a class="nav-link px-3" href="/profile/"> <span class="me-2 text-body" data-feather="user"></span><span>Perfil</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link px-3" href="/apps/"> <span class="me-2 text-body" data-feather="grid"></span>Apps</a>
+</li>
+<li class="nav-item">
+<a class="nav-link px-3" href="/plan-package/"> <span class="me-2 text-body" data-feather="briefcase"></span>Plano e pacote</a>
+</li>
+<li class="nav-item">
+<a class="nav-link px-3" href="/help-center/"> <span class="me-2 text-body" data-feather="help-circle"></span>Centro de ajuda</a>
+</li>
+</ul>
+</div>
+<hr/>
+<div class="px-3">
+
+</div>
+<div class="my-2 text-center fw-bold fs-10 text-body-quaternary">
+<a class="text-body-quaternary me-1" href="/privacy-policy/" target="_blank">política de privacidade</a>•
+              <a class="text-body-quaternary mx-1" href="/terms/" target="_blank"> termos</a>•
+              <a class="text-body-quaternary ms-1" href="/cookies/" target="_blank">Cookies</a>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</nav>
+<div aria-hidden="true" class="modal fade" id="staticBackdrop" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title text-white dark__text-gray-1100" id="staticBackdropLabel">Informação fiscal</h5>
+</div>
+<form class="needs-validation" id="myForm" novalidate="">
+<div class="modal-body">
+<div class="mb-3">
+<label class="form-label" for="exampleFormControlInput">CSOSN do ICMS </label>
+<select aria-label="Default select example" class="form-select" id="csosn">
+<option selected="">Selecione o código CSOSN</option>
+<option value="0">Não emitimos nota fiscal</option>
+<option value="102">102 - Tributada pelo Simples Nacional sem permissão de crédito</option>
+<option value="103">103 - Isenção do ICMS no Simples Nacional para faixa de receita bruta</option>
+<option value="400">400 - Não tributada pelo Simples Nacional</option>
+<option value="500">500 - Icms cobrado anteriormente por substituição tributária (substituído) ou por antecipação</option>
+</select>
+</div>
+          Esse código indica como a mercadoria será tributada dentro do Simples Nacional. Em caso de dúvidas, consulta o seu contador.
+        </div>
+<div class="response" id="resultCsosn"></div>
+<div class="modal-footer">
+<button class="btn btn-primary w-100 mb-3" id="setCsosn" type="submit"> <span id="btnIconContainer122"></span> Salvar</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+    (function () {
+      "use strict";
+      window.addEventListener(
+        "load",
+        function () {
+          var forms = document.getElementsByClassName("needs-validation");
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener(
+              "submit",
+              function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                } else {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  myCustomFunction();
+                }
+                form.classList.add("was-validated");
+              },
+              false
+            );
+          });
+        },
+        false
+      );
+
+      function myCustomFunction() {
+        var botonEnviar = $("#setCsosn");
+        var iconContainer = $("#btnIconContainer122");
+        var textoOriginal = botonEnviar.html();
+        iconContainer.html("");
+        iconContainer.html('<div class="spinner-border spinner-border-sm" role="status" style="width: 14px;height: 14px;"><span class="visually-hidden">Loading...</span></div>');
+        botonEnviar.prop("disabled", true);
+
+        $.ajax({
+          url: "https://meconect.app/setCsosn",
+          type: "POST",
+          data: {
+            csosn: $("#csosn").val(),
+          },
+          beforeSend: function () {},
+          success: function (i) {
+            iconContainer.html("");
+            botonEnviar.html(textoOriginal);
+            botonEnviar.prop("disabled", false);
+            $("#resultCsosn").html(i);
+          },
+          error: function (i) {
+            iconContainer.html("");
+            botonEnviar.html(textoOriginal);
+            botonEnviar.prop("disabled", false);
+            $("#resultCsosn").html("Nâo foi possivel encontra página de validação!");
+          },
+        });
+      }
+    })();
+    </script>
+<div class="content">
+<nav aria-label="breadcrumb" class="mb-2">
+<ol class="breadcrumb mb-0">
+<li class="breadcrumb-item"><a href="/dashboard/">Dashboard</a></li>
+<li class="breadcrumb-item active">Pedidos finalizados</li>
+</ol>
+</nav>
+<div class="mb-9">
+<div class="row g-3 mb-4">
+<div class="col-auto">
+<h2 class="mb-0">Pedidos finalizados</h2>
+</div>
+</div>
+<ul class="nav nav-links mb-3 mb-lg-2 mx-n3">
+<li class="nav-item">
+<a aria-current="page" class="nav-link active" href="/completed-orders/15/all/"><span>Todos </span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/xd_drop_off/"><span>Mercado Envios Places </span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/cross_docking/"><span>Mercado Envios Coleta </span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/self_service/"><span>Mercado Envios Flex </span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/drop_off/"><span>Mercado Envios Correios</span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/correios/"><span>Correios</span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/carrying/"><span>Transportadoras</span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/completed-orders/15/undefined/"><span>Indefinido</span><span class="text-body-tertiary fw-semibold">()</span></a>
+</li>
+</ul>
+<div data-list='{"valueNames":["packageId_order", "shippingId_order", "order","total","customer","payment_status","fulfilment_status","delivery_type","date"],"page":10,"pagination":true}' id="orderTable">
+<div class="mb-4">
+<div class="row g-3">
+<div class="col-auto">
+<div class="search-box">
+<form class="position-relative" data-bs-display="static" data-bs-toggle="search">
+<input aria-label="Search" class="form-control search-input search" placeholder="Buscar por pedidos" type="search"/>
+<span class="fas fa-search search-box-icon"></span>
+</form>
+</div>
+</div>
+<div class="col-auto scrollbar overflow-hidden-y flex-grow-1">
+<div class="btn-group position-static" role="group">
+<div class="btn-group position-static text-nowrap" role="group">
+<button aria-expanded="false" aria-haspopup="true" class="btn btn-phoenix-secondary px-7 flex-shrink-0" data-boundary="window" data-bs-reference="parent" data-bs-toggle="dropdown" type="button">
+                      Período<span class="fas fa-angle-down ms-2"></span>
+</button>
+<ul class="dropdown-menu dropdown-menu-end">
+<li><a class="dropdown-item" href="/completed-orders/1/cross_docking/">Hoje</a></li>
+<li><a class="dropdown-item" href="/completed-orders/2/cross_docking/">últimos 2</a></li>
+<li><a class="dropdown-item" href="/completed-orders/7/cross_docking/">Essa semana</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/cross_docking/">últimos 15 dias</a></li><li><a class="dropdown-item" href="/completed-orders/30/cross_docking/">últimos 30 dias</a></li>
+<li><a class="dropdown-item" href="/completed-orders/50/cross_docking/">últimos 50 dias</a></li>
+<li><a class="dropdown-item" href="/completed-orders/50/cross_docking/">últimos 90 dias</a></li>
+</ul>
+</div>
+<div class="btn-group position-static text-nowrap" role="group">
+<button aria-expanded="false" aria-haspopup="true" class="btn btn-sm btn-phoenix-secondary px-7 flex-shrink-0" data-boundary="window" data-bs-reference="parent" data-bs-toggle="dropdown" type="button">
+                      Tipo expedição<span class="fas fa-angle-down ms-2"></span>
+</button>
+<ul class="dropdown-menu dropdown-menu-end">
+<li><a class="dropdown-item" href="/completed-orders/15/xd_drop_off/">Mercado Envios Places</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/cross_docking/">Mercado Envios Coleta</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/self_service/">Mercado Envios Flex</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/drop_off/">Mercado Envios Correios</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/correios/">Correios</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/carrying/">Transportadora</a></li>
+<li><a class="dropdown-item" href="/pending-orders/15/fulfillment/">Fulfillment</a></li>
+<li><a class="dropdown-item" href="/completed-orders/15/undefined/">Indefinido</a></li>
+<li>
+<hr class="dropdown-divider"/>
+</li>
+<li><a class="dropdown-item" href="/completed-orders/15/all/">Todos</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-body-emphasis border-top border-bottom border-translucent position-relative top-1">
+<div class="table-responsive scrollbar mx-n1 px-1">
+<table class="table table-sm fs-9 mb-0">
+<thead>
+<tr>
+<th class="sort white-space-nowrap align-middle pe-3" data-sort="shippingId_order" scope="col" style="display:none;"></th>
+<th class="sort white-space-nowrap align-middle pe-3" data-sort="order" scope="col" style="width: 5%;">PEDIDO</th>
+<th class="sort align-middle ps-8" data-sort="customer" scope="col" style="width: 28%; min-width: 250px;">PRODUTO</th>
+<th class="sort align-middle pe-3" data-sort="payment_status" scope="col" style="width: 10%;">EXPEDIÇÃO</th>
+<th class="sort align-middle text-start pe-3" data-sort="fulfilment_status" scope="col" style="width: 12%; min-width: 200px;">STATUS</th>
+<th class="sort align-middle text-start" data-sort="delivery_type" scope="col" style="width: 30%;">HORÁRIO DE ENVIO</th>
+<th class="sort align-middle text-end pe-0" data-sort="date" scope="col">AÇÃO</th>
+</tr>
+</thead>
+<tbody class="list" id="order-table-body">
+</tbody>
+</table>
+</div>
+<div class="row align-items-center justify-content-between py-2 pe-0 fs-9">
+<div class="col-auto d-flex">
+<p class="mb-0 d-none d-sm-block me-3 fw-semibold text-body" data-list-info="data-list-info"></p>
+<a class="fw-semibold" data-list-view="*" href="/completed-orders/15/cross_docking/">Ver tudo <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+<a class="fw-semibold d-none" data-list-view="less" href="/completed-orders/15/cross_docking/">Ver menos <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+</div>
+<div class="col-auto d-flex">
+<button class="page-link" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+<ul class="mb-0 pagination"></ul>
+<button class="page-link pe-0" data-list-pagination="next"><span class="fas fa-chevron-right"></span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://meconect.app/js/list.min.js"></script>
+<footer class="footer position-absolute">
+<div class="row g-0 justify-content-between align-items-center h-100">
+<div class="col-12 col-sm-auto text-center">
+<p class="mb-0 mt-2 mt-sm-0 text-body">
+                CNPJ: 13.529.857/2650-17 <span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none"/>
+<script>
+                document.write(new Date().getFullYear());
+              </script> ©<a class="mx-1" href="/">MLink</a>
+</p>
+</div>
+<div class="col-12 col-sm-auto text-center">
+<p class="mb-0 text-body-tertiary text-opacity-85">v1.14.0</p>
+</div>
+</div>
+</footer>
+
+</main>
+<script async="" src="//code.jivosite.com/widget/UZwHAxgUWY"></script>
+<script src="https://meconect.app/js/popper.min.js"></script>
+<script src="https://meconect.app/js/bootstrap.min.js"></script>
+<script src="https://meconect.app/js/anchor.min.js"></script>
+<script src="https://meconect.app/js/is.min.js"></script>
+<script src="https://meconect.app/js/all.min.js"></script>
+<script src="https://meconect.app/js/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="https://meconect.app/js/feather.min.js"></script>
+<script src="https://meconect.app/js/dayjs.min.js"></script>
+<script src="https://meconect.app/js/choices.min.js"></script>
+<script src="https://meconect.app/js/echarts.min.js"></script>
+<script src="https://meconect.app/js/dhtmlxgantt.js"></script>
+<script src="https://meconect.app/js/phoenix.js"></script>
+<script src="https://meconect.app/js/projectmanagement-dashboard.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8a460b666d252646',t:'MTcyMTE3NTM5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

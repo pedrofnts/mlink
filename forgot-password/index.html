@@ -1,0 +1,146 @@
+html
+<html data-navbar-horizontal-shape="default" data-navigation-type="default" dir="ltr" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Portal do vendedor - recuperar senha</title>
+<link href="https://meconect.app/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://meconect.app/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://meconect.app/img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="https://meconect.app/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://meconect.app/img/imanifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://meconect.app/css/simplebar.min.css" rel="stylesheet">
+<link href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" rel="stylesheet">
+<link href="https://meconect.app/css/theme.min.css" id="style-default" rel="stylesheet" type="text/css">
+<link href="https://meconect.app/css/style.css?v=2" rel="stylesheet" type="text/css">
+<script src="https://meconect.app/js/j/jquery.js?v=25" type="text/javascript"></script>
+<script src="https://meconect.app/js/j/jquery.mask.min.js?v=25" type="text/javascript"></script>
+<script src="https://meconect.app/js/j/mask-medel.js?v=25" type="text/javascript"></script>
+</link></link></link></link></link></head>
+<body>
+<main class="main" id="top">
+<div class="container-fluid bg-body-tertiary dark__bg-gray-1200">
+<div class="bg-holder bg-auth-card-overlay" style="background-image: url(https://meconect.app/img/37.png);"></div>
+/.bg-holder
+<div class="row flex-center position-relative min-vh-100 g-0 py-5">
+<div class="col-11 col-sm-10 col-xl-8">
+<div class="card border border-translucent auth-card">
+<div class="card-body pe-md-0">
+<div class="row align-items-center gx-0 gy-7">
+<div class="col-auto bg-body-highlight dark__bg-gray-1100 rounded-3 position-relative overflow-hidden auth-title-box">
+<div class="bg-holder" style="background-image: url(&lt;?phpechoURL_BASE?&gt;img/38.png);"></div>
+/.bg-holder
+<div class="position-relative px-4 px-lg-7 pt-7 pb-7 pb-sm-5 text-center text-md-start pb-lg-7 card-sign-up">
+<h3 class="mb-3 text-body-emphasis fs-7">Portal do vendedor</h3>
+<p class="text-body-tertiary">Bem-vindo à nossa plataforma MECONECT, onde conectamos empresas e empreendedores a uma rede diversificada de vendedores confiáveis.</p>
+<ul class="list-unstyled mb-0 w-max-content w-md-auto">
+<li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-body-tertiary fw-semibold">Conectividade</span></li>
+<li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-body-tertiary fw-semibold">Simplicidade</span></li>
+<li class="d-flex align-items-center"><span class="uil uil-check-circle text-success me-2"></span><span class="text-body-tertiary fw-semibold">Segurança</span></li>
+</ul>
+</div>
+<div class="position-relative z-n1 mb-6 d-none d-md-block text-center mt-md-15">
+<img class="auth-title-box-img d-dark-none" src="https://meconect.app/img/auth.png"/><img class="auth-title-box-img d-light-none" src="https://meconect.app/img/auth-dark.png"/>
+</div>
+</div>
+<div class="col mx-auto">
+<div class="auth-form-box">
+<div class="text-center">
+<a class="d-flex flex-center text-decoration-none mb-4">
+<div class="d-flex align-items-center fw-bolder fs-3 d-inline-block"><img src="https://meconect.app/img/logo.svg" width="180"/></div>
+</a>
+<h4 class="text-body-highlight">Esqueceu sua senha?</h4>
+<p class="text-body-tertiary mb-5">
+                          Digite seu e-mail abaixo e enviaremos um link de
+                          <br class="d-md-none"/>
+                          redefinição.
+                        </p>
+<form class="d-flex align-items-center mb-5 needs-validation" id="myForm" novalidate="">
+<input class="form-control flex-1" id="email" placeholder="Email" required="" type="email"/>
+<button class="btn btn-primary ms-2" id="recoverPassword"><span id="btnIconContainer"></span>Enviar<span class="fas fa-chevron-right ms-2"></span></button>
+</form>
+<div class="response" id="result"></div>
+<a class="fs-9 fw-bold" href="/forgot-password/">Ainda tendo problemas?</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    (function () {
+      "use strict";
+      window.addEventListener(
+        "load",
+        function () {
+          var forms = document.getElementsByClassName("needs-validation");
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener(
+              "submit",
+              function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                } else {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  myCustomFunction();
+                }
+                form.classList.add("was-validated");
+              },
+              false
+            );
+          });
+        },
+        false
+      );
+
+      function myCustomFunction() {
+        var botonEnviar = $("#recoverPassword");
+        var iconContainer = $("#btnIconContainer");
+        var textoOriginal = botonEnviar.html();
+        iconContainer.html("");
+        iconContainer.html('<div class="spinner-border spinner-border-sm" role="status" style="width: 14px;height: 14px;"><span class="visually-hidden">Loading...</span></div>');
+        botonEnviar.prop("disabled", true);
+
+        $.ajax({
+          url: "https://meconect.app/recover-password",
+          type: "POST",
+          data: {
+            email: $("#email").val(),
+          },
+          beforeSend: function () {},
+          success: function (i) {
+            iconContainer.html("");
+            botonEnviar.html(textoOriginal);
+            botonEnviar.prop("disabled", false);
+            $("#result").html(i);
+          },
+          error: function (i) {
+            iconContainer.html("");
+            botonEnviar.html(textoOriginal);
+            botonEnviar.prop("disabled", false);
+            $("#result").html("Nâo foi possivel encontra página de validação!");
+          },
+        });
+      }
+    })();
+    </script>
+<script src="https://meconect.app/js/popper.min.js"></script>
+<script src="https://meconect.app/js/bootstrap.min.js"></script>
+<script src="https://meconect.app/js/anchor.min.js"></script>
+<script src="https://meconect.app/js/is.min.js"></script>
+<script src="https://meconect.app/js/all.min.js"></script>
+<script src="https://meconect.app/js/lodash.min.js"></script>
+<script src="https://meconect.app/js/list.min.js"></script>
+<script src="https://meconect.app/js/feather.min.js"></script>
+<script src="https://meconect.app/js/dayjs.min.js"></script>
+<script src="https://meconect.app/js/phoenix.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8a4608b62f832646',t:'MTcyMTE3NTI4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

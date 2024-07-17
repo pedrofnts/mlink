@@ -1,0 +1,1165 @@
+<html data-direction="ltr" lang="en">
+<head>
+<link href="https://meconect.app/site/css/site1.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<link href="https://meconect.app/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<title>MeConect</title>
+<style>
+        /* Estilo para o fundo do popup */
+        .popup {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            display: none; /* Inicialmente oculto */
+        }
+
+        /* Estilo para o conteúdo do popup */
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0; /* Bordas arredondadas apenas na parte superior */
+            width: 100%;
+            max-width: 600px; /* Tamanho máximo do popup */
+            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.3s ease-in-out;
+        }
+
+        /* Animação de fade-in-up */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .popup-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .popup-content a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .popup-content a:hover {
+            text-decoration: underline;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px; /* Espaço entre os botões */
+        }
+
+        .popup-buttons button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+            flex: 1; /* Para que os botões se ajustem igualmente */
+        }
+
+        .accept-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .accept-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .decline-button {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .decline-button:hover {
+            background-color: #e53935;
+            transform: translateY(-2px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .popup-content {
+                padding: 20px;
+            }
+
+            .popup-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .popup-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
+<style type="text/css">
+    /*! CSS Used from: https://meconect.app/site/css/bootstrap.min.css */
+a{background-color:transparent;}
+a:active,a:hover{outline:0;}
+@media print{
+*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+a,a:visited{text-decoration:underline;}
+a[href]:after{content:" (" attr(href) ")";}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+a{color:#337ab7;text-decoration:none;}
+a:focus,a:hover{color:#23527c;text-decoration:underline;}
+a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+/*! CSS Used from: https://meconect.app/site/css/font-awesome.min.css */
+a{background-color:transparent;}
+a:active,a:hover{outline:0;}
+@media print{
+*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+a,a:visited{text-decoration:underline;}
+a[href]:after{content:" (" attr(href) ")";}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+a{color:#337ab7;text-decoration:none;}
+a:focus,a:hover{color:#23527c;text-decoration:underline;}
+a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+/*! CSS Used from: https://meconect.app/site/css/style.css */
+*{padding:0;margin:0;}
+a{transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;-ms-transition:all 0.35s ease-in-out;-o-transition:all 0.35s ease-in-out;outline:medium none;}
+a,a:active,a:focus,a:hover{outline:none;text-decoration:none;color:#323a45;}
+a:hover{color:#323a45;}
+a{transition:all 0.35s ease-in-out;-webkit-transition:all 0.35s ease-in-out;-moz-transition:all 0.35s ease-in-out;-ms-transition:all 0.35s ease-in-out;-o-transition:all 0.35s ease-in-out;text-decoration:none;font-family:'Poppins', sans-serif;}
+/*! CSS Used from: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css */
+.fa-whatsapp:before{content:"\f232";}
+/*! CSS Used from: Embedded */
+@media all{
+*,::after,::before{box-sizing:border-box;}
+a{color:#007bff;text-decoration:none;background-color:transparent;}
+a:hover{color:#0056b3;text-decoration:underline;}
+@media print{
+*,::after,::before{text-shadow:none!important;box-shadow:none!important;}
+a:not(.btn){text-decoration:underline;}
+}
+*{padding:0;margin:0;box-sizing:border-box;-moz-box-sizing:border-box;outline:0;}
+a:active,a:focus,a:hover{outline:0;}
+a{color:#047;text-decoration:none;font-family:Roboto,sans-serif;transition:all ease .3s;text-rendering:optimizeLegibility!important;}
+a:hover{color:#b2cd1d;}
+html a:hover{text-decoration:none;}
+::-webkit-scrollbar{width:.5em;height:.5em;}
+::-webkit-scrollbar-thumb{background:#047;}
+::-webkit-scrollbar-track{background:#dedede;}
+}
+.fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1;}
+.fa-whatsapp:before{content:"\f232";}
+.fab{font-family:"Font Awesome 5 Brands";}
+.float,.float:hover{background-color:#25d366;}
+.float{position:fixed;width:60px;height:60px;bottom:20px;right:20px;color:#fff;border-radius:50px;text-align:center;font-size:30px;z-index:100;}
+.float:hover{color:#fff!important;}
+.float:active{animation-iteration-count:1;}
+.my-float{margin-top:16px;}
+.float{box-shadow:0 0 0 0 rgb(37, 211, 102);-webkit-animation:pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);-moz-animation:pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);-ms-animation:pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);animation:pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);}
+/*! CSS Used keyframes */
+@-webkit-keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1);}50%{-webkit-transform:scale(1.1);transform:scale(1.1);}100%{-webkit-transform:scale(1);transform:scale(1);}}
+@keyframes pulse{0%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}50%{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}100%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}
+@-webkit-keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1);}50%{-webkit-transform:scale(1.1);transform:scale(1.1);}100%{-webkit-transform:scale(1);transform:scale(1);}}
+@keyframes pulse{0%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}50%{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}100%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}
+@-webkit-keyframes pulse{to{box-shadow:0 0 0 45px rgba(232, 76, 61, 0);}}
+@-moz-keyframes pulse{to{box-shadow:0 0 0 45px rgba(232, 76, 61, 0);}}
+@keyframes pulse{to{box-shadow:0 0 0 45px rgba(232, 76, 61, 0);}}
+/*! CSS Used fontfaces */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');unicode-range:U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Font Awesome 5 Brands";font-style:normal;font-weight:normal;font-display:auto;src:url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.eot);src:url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.woff2) format("woff2"),url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.woff) format("woff"),url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.ttf) format("truetype"),url(https://use.fontawesome.com/releases/v5.8.2/webfonts/fa-brands-400.svg#fontawesome) format("svg");}
+</style>
+</head>
+<body cz-shortcut-listen="true">
+ Popup 
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Termos de Uso e Política de Privacidade</h2>
+<p>Para continuar usando os serviços da MLink, você precisa aceitar nossos 
+              <a href="/termos-de-uso/" target="_blank">Termos de Uso</a> e <a href="/terms/" target="_blank">Política de Privacidade</a>.</p>
+<div class="popup-buttons">
+<button class="accept-button" onclick="acceptTerms()">Aceitar</button>
+</div>
+</div>
+</div>
+<script>
+        // Verifica se o popup foi aceito anteriormente
+        function checkPopupStatus() {
+            return localStorage.getItem('popupAccepted') === 'true';
+        }
+
+        // Mostrar o popup após 2 segundos se ainda não foi aceito
+        window.onload = function() {
+            if (!checkPopupStatus()) {
+                setTimeout(function() {
+                    document.getElementById('popup').style.display = 'flex';
+                }, 2000);
+            }
+        };
+
+        function acceptTerms() {
+            // Marca o popup como aceito no localStorage
+            localStorage.setItem('popupAccepted', 'true');
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function declineTerms() {
+            // Lógica para quando os termos forem recusados
+            alert("Você recusou os Termos de Uso e a Política de Privacidade.");
+            // Opcional: redirecionar ou bloquear acesso
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+<div id="root">
+<div class="flex flex-col bg-lightGrey-200 w-full min-h-screen">
+<header class="sticky -top-1 z-sticky flex items-center bg-darkNavy w-full h-72 lg:h-80 -mb-80 transition-colors" style="">
+<div class="flex max-w-1336 items-center justify-between mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<a href="/"><img alt="meconect" class="w-80 lg:w-100 h-20 lg:h-24 object-contain" height="46" src="https://meconect.app/img/logo-meconec.svg" style="width: 156px;height: 50px;" width="200"/></a>
+<nav class="space-x-64">
+<ul class="hidden lg:inline-block space-x-64 text-lightGrey-50">
+</ul>
+<a class="lg:inline-block hidden min-h-40 text-sm text-darkNavy rounded-full bg-lightGrey-50 hover:invert-20 font-normal py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="/login/" style="display: inline-flex;">
+<div></div>
+<div class="flex-1 h-max">Entrar</div>
+<div></div>
+</a>
+</nav>
+</div>
+</header>
+<main class="flex flex-col">
+<section class="after:bg-no-repeat before:bg-no-repeat after:bg-cover before:bg-cover after:bg-flow before:bg-flow after:absolute before:absolute relative lg:pt-192 pt-88 after:touch-none after:pointer-events-none after:rotate-135 after:h-640 after:w-1300 after:opacity-30 after:top-576 after:-right-320 before:touch-none before:pointer-events-none before:-rotate-45 before:h-640 before:w-1600 before:opacity-30 before:top-152 before:-right-192 overflow-hidden bg-darkNavy">
+<div class="flex lg:flex-row flex-col max-w-1336 md:gap-24 gap-40 max-lg:items-center mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<div class="flex-1 space-y-40 mt-48 text-lightGrey-50">
+<p class="text-sm md:text-base uppercase">Conquiste sua independência financeira</p>
+<h1 class="false text-3xl md:text-5xl font-lexia-ads font-black">
+                  Torne-se um<br/>
+<span class="text-olive">empreendedor digital</span>
+</h1>
+<p class="max-w-512 text-lg">Plataforma que conecta vendedores
+A fornecedores, ambos qualificados,
+Integrados ao mercado livre,
+Gerando vendas por meio de alguns
+cliques.</p>
+<a class="flex min-h-48 text-sm text-darkNavy rounded-full bg-olive hover:invert-20 font-normal py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="/register/" style="display: inline-flex;">
+<div></div>
+<div class="flex-1 h-max">Inscreva-se agora</div>
+<div></div>
+</a>
+</div>
+<div class="relative flex justify-center items-center w-full md:w-544 max-w-320 md:max-w-544">
+<div class="absolute top-0 left-0 z-0 w-120 md:w-224 space-y-4">
+<article class="bg-lightGrey-50 rounded-4 md:rounded-8 p-4 md:p-8 text-grey">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<img alt="icon" class="w-8 h-8 md:w-14 md:h-14 rounded-2" height="14" src="https://meconect.app/icons/amazon.png" width="14"/>
+<h4 class="ml-2 text-[5.6px] md:text-[10px]">Amazon</h4>
+</div>
+<p class="text-[4.6px] md:text-[8px]">Hoje 14:16</p>
+</div>
+<p class="mt-2 text-[5.2px] md:text-[9px] font-semibold">Você recebeu um novo pedido!</p>
+<p class="text-[5.2px] md:text-[9px]">Valor: R$ 61,55</p>
+</article>
+<article class="bg-lightGrey-50 rounded-4 md:rounded-8 p-4 md:p-8 text-grey">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<img alt="icon" class="w-8 h-8 md:w-14 md:h-14 rounded-2" height="14" src="https://meconect.app/icons/mercado-livre.png" width="14"/>
+<h4 class="ml-2 text-[5.6px] md:text-[10px]">Mercado Livre</h4>
+</div>
+<p class="text-[4.6px] md:text-[8px]">Hoje 13:51</p>
+</div>
+<p class="mt-2 text-[5.2px] md:text-[9px] font-semibold">Você recebeu um novo pedido!</p>
+<p class="text-[5.2px] md:text-[9px]">Valor: R$ 44,80</p>
+</article>
+<article class="bg-lightGrey-50 rounded-4 md:rounded-8 p-4 md:p-8 text-grey">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<img alt="icon" class="w-8 h-8 md:w-14 md:h-14 rounded-2" height="14" src="https://meconect.app/icons/shopee.png" width="14"/>
+<h4 class="ml-2 text-[5.6px] md:text-[10px]">Shopee</h4>
+</div>
+<p class="text-[4.6px] md:text-[8px]">Hoje 12:47</p>
+</div>
+<p class="mt-2 text-[5.2px] md:text-[9px] font-semibold">Você recebeu um novo pedido!</p>
+<p class="text-[5.2px] md:text-[9px]">Valor: R$ 54,28</p>
+</article>
+<article class="bg-lightGrey-50 rounded-4 md:rounded-8 p-4 md:p-8 text-grey">
+<div class="flex justify-between items-center">
+<div class="flex items-center">
+<img alt="icon" class="w-8 h-8 md:w-14 md:h-14 rounded-2" height="14" src="https://meconect.app/icons/shein.png" width="14"/>
+<h4 class="ml-2 text-[5.6px] md:text-[10px]">Shein</h4>
+</div>
+<p class="text-[4.6px] md:text-[8px]">Hoje 12:01</p>
+</div>
+<p class="mt-2 text-[5.2px] md:text-[9px] font-semibold">Você recebeu um novo pedido!</p>
+<p class="text-[5.2px] md:text-[9px]">Valor: R$ 30,90</p>
+</article>
+</div>
+<img alt="dolado" class="z-1 w-272 min-w-272 md:w-416 md:min-w-416 h-480 md:h-704" height="722" sizes="(max-width: 768px) 270px, 410px" src="https://meconect.app/img/happy-man-2_410x722.webp" srcset="https://meconect.app/img/happy-man-2_270x476.webp 270w, https://meconect.app/img/happy-man-2_410x722.webp 410w" width="410"/>
+<ul class="absolute right-0 md:top-160 z-10 bg-lightGrey-50 rounded-4 md:rounded-8 shadow-lg px-14 md:px-24 py-10 md:py-18 space-y-6 md:space-y-12 text-[6.9px] md:text-[10px] text-grey transition-transform duration-500 hover:scale-110">
+<h4>Vendas</h4>
+<li class="flex items-center">
+<svg class="md:h-16 md:w-16 h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>ShopLinear</title>
+<path d="M3.00999 11.22V15.71C3.00999 20.2 4.80999 22 9.29999 22H14.69C19.18 22 20.98 20.2 20.98 15.71V11.22" stroke="currentColor"></path>
+<path d="M12 12C13.83 12 15.18 10.51 15 8.68L14.34 2H9.67L9 8.68C8.82 10.51 10.17 12 12 12Z" stroke="currentColor"></path>
+<path d="M18.31 12C20.33 12 21.81 10.36 21.61 8.35L21.33 5.6C20.97 3 19.97 2 17.35 2H14.3L15 9.01C15.17 10.66 16.66 12 18.31 12Z" stroke="currentColor"></path>
+<path d="M5.64 12C7.29 12 8.78 10.66 8.94 9.01L9.16 6.8L9.64001 2H6.59C3.97001 2 2.97 3 2.61 5.6L2.34 8.35C2.14 10.36 3.62 12 5.64 12Z" stroke="currentColor"></path>
+<path d="M12 17C10.33 17 9.5 17.83 9.5 19.5V22H14.5V19.5C14.5 17.83 13.67 17 12 17Z" stroke="currentColor"></path>
+</svg>
+<span class="ml-12">Produtos</span>
+</li>
+<li class="flex items-center">
+<svg class="md:h-16 md:w-16 h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>ArrowLeftRightLinear</title>
+<path d="M17.28 10.45L21 6.72998L17.28 3.01001" stroke="currentColor"></path>
+<path d="M3 6.72998H21" stroke="currentColor"></path>
+<path d="M6.71997 13.55L3 17.2701L6.71997 20.9901" stroke="currentColor"></path>
+<path d="M21 17.27H3" stroke="currentColor"></path>
+</svg>
+<span class="ml-12">Anúncios</span>
+</li>
+<li class="flex items-center">
+<svg class="md:h-16 md:w-16 h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>ShoppingCartLinear</title>
+<path d="M2 2H3.74001C4.82001 2 5.67 2.93 5.58 4L4.75 13.96C4.61 15.59 5.89999 16.99 7.53999 16.99H18.19C19.63 16.99 20.89 15.81 21 14.38L21.54 6.88C21.66 5.22 20.4 3.87 18.73 3.87H5.82001" stroke="currentColor"></path>
+<path d="M16.25 22C16.9404 22 17.5 21.4404 17.5 20.75C17.5 20.0596 16.9404 19.5 16.25 19.5C15.5596 19.5 15 20.0596 15 20.75C15 21.4404 15.5596 22 16.25 22Z" stroke="currentColor"></path>
+<path d="M8.25 22C8.94036 22 9.5 21.4404 9.5 20.75C9.5 20.0596 8.94036 19.5 8.25 19.5C7.55964 19.5 7 20.0596 7 20.75C7 21.4404 7.55964 22 8.25 22Z" stroke="currentColor"></path>
+<path d="M9 8H21" stroke="currentColor"></path>
+</svg>
+<span class="ml-12">Pedidos</span>
+</li>
+<li class="flex items-center">
+<svg class="md:h-16 md:w-16 h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>Profile2usersLinear</title>
+<path d="M9.16006 10.87C9.06006 10.86 8.94006 10.86 8.83006 10.87C6.45006 10.79 4.56006 8.84 4.56006 6.44C4.56006 3.99 6.54006 2 9.00006 2C11.4501 2 13.4401 3.99 13.4401 6.44C13.4301 8.84 11.5401 10.79 9.16006 10.87Z" stroke="currentColor"></path>
+<path d="M16.41 4C18.35 4 19.91 5.57 19.91 7.5C19.91 9.39 18.41 10.93 16.54 11C16.46 10.99 16.37 10.99 16.28 11" stroke="currentColor"></path>
+<path d="M4.15997 14.56C1.73997 16.18 1.73997 18.82 4.15997 20.43C6.90997 22.27 11.42 22.27 14.17 20.43C16.59 18.81 16.59 16.17 14.17 14.56C11.43 12.73 6.91997 12.73 4.15997 14.56Z" stroke="currentColor"></path>
+<path d="M18.3401 20C19.0601 19.85 19.7401 19.56 20.3001 19.13C21.8601 17.96 21.8601 16.03 20.3001 14.86C19.7501 14.44 19.0801 14.16 18.3701 14" stroke="currentColor"></path>
+</svg>
+<span class="ml-12">Clientes</span>
+</li>
+<li class="flex items-center">
+<svg class="md:h-16 md:w-16 h-8 w-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>CalculatorLinear</title>
+<path d="M10 22H14C19 22 21 20 21 15V9C21 4 19 2 14 2H10C5 2 3 4 3 9V15C3 20 5 22 10 22Z" stroke="currentColor"></path>
+<path d="M16.5 7.57996V8.57996C16.5 9.39996 15.83 10.08 15 10.08H9C8.18 10.08 7.5 9.40996 7.5 8.57996V7.57996C7.5 6.75996 8.17 6.07996 9 6.07996H15C15.83 6.07996 16.5 6.74996 16.5 7.57996Z" stroke="currentColor"></path>
+<path d="M8.13612 14H8.14767" stroke="currentColor" stroke-width="2"></path>
+<path d="M11.9952 14H12.0068" stroke="currentColor" stroke-width="2"></path>
+<path d="M15.8544 14H15.8659" stroke="currentColor" stroke-width="2"></path>
+<path d="M8.13612 17.5H8.14767" stroke="currentColor" stroke-width="2"></path>
+<path d="M11.9952 17.5H12.0068" stroke="currentColor" stroke-width="2"></path>
+<path d="M15.8544 17.5H15.8659" stroke="currentColor" stroke-width="2"></path>
+</svg>
+<span class="ml-12">Precificador</span>
+</li>
+</ul>
+<ul class="absolute left-8 bottom-144 md:left-24 md:bottom-224 z-10 bg-lightGrey-50 rounded-4 md:rounded-8 shadow-lg p-9 md:p-16 text-[6.9px] md:text-[10px] text-grey transition-transform duration-500 hover:scale-110">
+<h4>Total de vendas</h4>
+<li class="mt-5 md:mt-8">
+<b>R$ 28.552,00</b>
+<svg class="inline-block text-olive-700 h-12 w-12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>TrendUpLinear</title>
+<path d="M16.5 9.5L12.3 13.7L10.7 11.3L7.5 14.5" stroke="currentColor"></path>
+<path d="M14.5 9.5H16.5V11.5" stroke="currentColor"></path>
+</svg>
+<span class="text-olive-700">23%</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<style>
+      
+
+      
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 0 0 5px rgba(0, 102, 204, 0.2);
+            outline: 1px solid #0066cc;
+            transform: translateY(-10px);
+        }
+        .icon-container {
+            background-color: #0066cc;
+            border-radius: 50%;
+            padding: 12px;
+            display: inline-block;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+        .icon-container svg {
+            color: #fff;
+            height: 40px;
+            width: 40px;
+        }
+        h4 {
+            margin: 0 0 8px;
+            color: #333;
+            font-size: 1.1em;
+        }
+      
+
+    </style>
+<section class="pt-200 pb-80 lg:pb-176" id="how-it-works" style="padding-top: 79px;    padding-bottom: 0px;">
+<h2 class="max-lg:max-w-576 mx-auto text-3xl lg:text-4xl font-black font-lexia-ads lg:text-center" style="text-align: center;">Fluxo de Compra e Logística<span class="text-doladoBlue"> da Venda</span></h2>
+<br/><br/><br/>
+<div class="container">
+<div class="card">
+<div class="icon-container" style="background-color: #f4f4f4;">
+<img src="https://meconect.app/img/comprador.png" style="width: 50px;height: 50px;"/>
+</div>
+<h4>1 - Consumidor Final</h4>
+<p>Navega pelo site do Mercado Livre, informa os dados de entrega e faz o pagamento.</p>
+</div>
+<div class="card">
+<div class="icon-container" style="background-color: #fff714;">
+<img src="https://meconect.app/img/mercado-livre-87.png" style="width: 50px;height: 50px;"/>
+</div>
+<h4>2 - Mercado Livre</h4>
+<p>Recebe o pagamento, desconta comissão e frete, e cria o pedido com documentos de envio.</p>
+</div>
+<div class="card">
+<div class="icon-container" style="background-color: #fff714;">
+<img src="https://meconect.app/img/vendedor.png" style="width: 50px;height: 50px;"/>
+</div>
+<h4>3 - Vendedor ML</h4>
+<p>Recebe a notificação da venda e acessa a plataforma da MLink para prosseguir.</p>
+</div>
+<div class="card">
+<div class="icon-container" style="background-color: #f4f4f4;">
+<img src="https://meconect.app/img/iconemeconect.png" style="width: 50px;height: 50px;"/>
+</div>
+<h4>4 - MLink</h4>
+<p>Recebe o pedido integrado, confirma as informações e realiza o pagamento ao fornecedor.</p>
+</div>
+<div class="card">
+<div class="icon-container" style="background-color: #f4f4f4;">
+<img src="https://meconect.app/img/fornecedor.png" style="width: 50px;height: 50px;"/>
+</div>
+<h4>5 - Fornecedor</h4>
+<p>Recebe o pedido e a confirmação do pagamento, e expede o produto pelo galpão logístico.</p>
+</div>
+</div>
+</section>
+<section class="pt-200 pb-80 lg:pb-176" id="how-it-works">
+<div class="flex flex-col max-w-1336 gap-80 mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<article class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[repeat(8,minmax(0,max-content))] text-center lg:text-left gap-x-28 gap-y-24 lg:gap-y-48">
+<div class="lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-1">
+<h2 class="text-3xl text-darkNavy font-lexia-ads font-black">Aplique seu conhecimento criando <span class="text-doladoBlue">anúncios incríveis.</span></h2>
+</div>
+<div class="flex items-center lg:row-start-1 lg:row-end-[9]"><img alt="offers" class="w-full lg:w-max ml-auto" height="400" loading="lazy" src="https://meconect.app/img/offers.webp" width="516"/></div>
+<div class="flex flex-col items-center lg:items-start lg:row-start-3 lg:row-end-[8]">
+<p class="text-grey">
+                   Você terá acesso a um catálogo de produtos diversificado para otimizar seus anúncios. Utilize nossa plataforma, integrada aos principais canais de venda online do Brasil, para escolher produtos e criar e gerenciar seus anúncios de forma rápida e fácil. Com isso, você maximiza sua visibilidade e potencial de vendas sem complicações.
+                  </p>
+<a class="flex min-h-40 text-sm rounded-full lg:mt-48 mt-24 hover:invert-20 text-lightGrey font-normal bg-doladoBlue py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="/register/" style="display: inline-flex;">
+<div></div>
+<div class="flex-1 h-max" style="margin-top: 5px!important;">Inscreva-se agora</div>
+<div></div>
+</a>
+</div>
+</article>
+<article class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[repeat(8,minmax(0,max-content))] text-center lg:text-left gap-x-28 gap-y-24 lg:gap-y-48">
+<div class="lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-2">
+<h2 class="text-3xl text-darkNavy font-lexia-ads font-black">Produtos com <span class="text-doladoBlue">alto potencial de lucro</span> para vender sem estoque.</h2>
+</div>
+<div class="flex items-center lg:row-start-1 lg:row-end-[9]"><img alt="catalog" class="w-full lg:w-max mr-auto" height="400" loading="lazy" src="https://meconect.app/img/catalog.webp" style="border-radius: 20px;
+    height: 268px;" width="516"/></div>
+<div class="flex flex-col items-center lg:items-start lg:row-start-3 lg:row-end-[8]">
+<p class="text-grey">
+                   Adquira produtos diretamente de grandes fornecedores a preço de custo. Os fornecedores enviam os produtos diretamente para seus clientes, eliminando a necessidade de investir em estoque. Dessa forma, você pode vender produtos de qualidade sem se preocupar com armazenagem e logística.
+                  </p>
+<a class="flex min-h-40 text-sm rounded-full lg:mt-48 mt-24 hover:invert-20 text-lightGrey font-normal bg-doladoBlue py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="/register/" style="display: inline-flex;">
+<div></div>
+<div class="flex-1 h-max">Dê o primeiro passo</div>
+<div></div>
+</a>
+</div>
+</article>
+<article class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[repeat(8,minmax(0,max-content))] text-center lg:text-left gap-x-28 gap-y-24 lg:gap-y-48">
+<div class="lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-1">
+<h2 class="text-3xl text-darkNavy font-lexia-ads font-black"><span class="text-doladoBlue">Concentre-se em vender.</span> Deixe os detalhes para nós.</h2>
+</div>
+<div class="flex items-center lg:row-start-1 lg:row-end-[9]"><img alt="warehouse" class="w-full lg:w-max ml-auto" height="400" loading="lazy" src="https://meconect.app/img/warehouse.webp" style="    border-radius: 23px;" width="516"/></div>
+<div class="flex flex-col items-center lg:items-start lg:row-start-3 lg:row-end-[8]">
+<p class="text-grey">
+                    O modelo de negócio da MLink é proporcionar aos vendedores uma operação logística eficiente e integrada. Nós cuidamos de todo o processo, desde a emissão de notas fiscais, separação e envio dos pedidos diretamente para seus clientes, sempre com agilidade e precisão. Assim, nossos vendedores podem concentrar-se em aumentar suas vendas e expandir seus negócios, enquanto deixamos a logística por nossa conta.
+                  </p>
+<a class="flex min-h-40 text-sm rounded-full lg:mt-48 mt-24 hover:invert-20 text-lightGrey font-normal bg-doladoBlue py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="https://api.whatsapp.com/send?phone=5511992390900">
+<div></div>
+<div class="flex-1 h-max">Saiba mais</div>
+<div></div>
+</a>
+</div>
+</article>
+</div>
+</section>
+<section class="bg-royalBlue-50 py-80 lg:py-112">
+<div class="flex flex-col max-w-1336 gap-40 mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<h2 class="max-lg:max-w-576 mx-auto text-3xl lg:text-4xl font-black font-lexia-ads lg:text-center">O que dizem os nossos <span class="text-doladoBlue">empreendedores</span></h2>
+<article class="flex flex-col-reverse lg:flex-row items-center gap-40">
+<div class="flex-1"><img alt="comment" class="rounded-16" height="540" loading="lazy" src="https://meconect.app/img/mourad.webp" width="516"/></div>
+<div class="flex-1 max-w-576 text-darkNavy">
+<img alt="quotes" class="mb-24" height="30" src="https://meconect.app/img/quotes.png" width="35">
+<h2 class="mb-40 text-3xl font-semibold">
+                    A MLink me proporcionou a liberdade financeira, permitindo-me fazer meu próprio horário e ter total autonomia. Com a MLink cuidando da logística, posso focar em outros projetos e expandir meus negócios sem preocupações.
+                  </h2>
+<h4 class="text-xl font-semibold">Rafael Salmo</h4>
+<p class="text-xl">Empreendedor R7 sales</p>
+</img></div>
+</article>
+</div>
+</section>
+<section class="after:bg-no-repeat before:bg-no-repeat after:bg-cover before:bg-cover bg-gradient-to-l after:bg-flow before:bg-flow after:absolute before:absolute relative lg:py-112 py-80 after:touch-none after:pointer-events-none after:rotate-150 after:h-640 after:w-1300 after:opacity-30 after:top-30 after:-right-112 before:touch-none before:pointer-events-none before:-rotate-30 before:h-640 before:w-1300 before:opacity-30 before:-top-300 before:-left-152 overflow-hidden to-darkNavy-700 from-darkNavy" style="background-color: #0067d7;    background-size: cover; background-image: url('https://meconect.app/img/9683fd62b08b9bf5ed12.webp');">
+<div class="flex flex-col max-w-1336 text-center text-lightGrey-50 items-center mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<h2 class="mb-24 text-3xl md:text-[40px] font-lexia-ads font-black">Comece agora seu futuro com o lucro automático
+</h2>
+<p class="max-w-832 mb-48 text-lg md:text-2xl">Sem dores de cabeça, sem enrolação, com total suporte, você dá início ao seu lucro automático através de  vasto catálogo de produtos.</p>
+<a class="flex min-h-56 text-sm text-darkNavy rounded-full w-max bg-olive hover:invert-20 font-normal py-4 px-16 disabled:hover:text-grey-400 disabled:hover:invert-0 disabled:hover:bg-lightGrey-600 disabled:text-grey-400 disabled:bg-lightGrey-600 items-center justify-center" href="/register/" style="display: inline-flex;">
+<div></div>
+<div class="flex-1 h-max" style="font-weight: 600!important;">Eu quero lucro automático</div>
+<div></div>
+</a>
+</div>
+</section>
+<style type="text/css">
+    /*! CSS Used from: Embedded */
+svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box;}
+.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em;}
+.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0;}
+.fa-ul>li{position:relative;}
+.fa-li{left:calc(var(--fa-li-width,2em) * -1);position:absolute;text-align:center;width:var(--fa-li-width,2em);line-height:inherit;}
+.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em;}
+.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto);}
+.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em;}
+.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em;}
+.fa-inverse{color:var(--fa-inverse,#fff);}
+/*! CSS Used from: https://meconect.app/css/theme-rtl.min.css */
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;}
+hr{margin:1rem 0;color:var(--phoenix-border-color-translucent);border:0;border-top:var(--phoenix-border-width) solid;opacity:1;}
+h5,h3,h2{margin-top:0;margin-bottom:.25rem;font-weight:700;line-height:1;color:var(--phoenix-heading-color);}
+h2{font-size:calc(1.3203125rem + 0.84375vw);}
+@media (min-width: 1200px){
+h2{font-size:1.953125rem;}
+}
+h3{font-size:calc(1.28125rem + 0.375vw);}
+@media (min-width: 1200px){
+h3{font-size:1.5625rem;}
+}
+h5{font-size:1rem;}
+p{margin-top:0;margin-bottom:1rem;}
+ol,ul{padding-right:2rem;}
+ol,ul{margin-top:0;margin-bottom:1rem;}
+a{color:rgba(var(--phoenix-link-color-rgb), var(--phoenix-link-opacity, 1));text-decoration:none;}
+a:hover{--phoenix-link-color-rgb:var(--phoenix-link-hover-color-rgb);text-decoration:underline;}
+img,svg{vertical-align:middle;}
+button{border-radius:0;}
+button:focus:not(:focus-visible){outline:0;}
+button{margin:0;font-family:inherit;font-size:inherit;line-height:inherit;}
+button{text-transform:none;}
+button{-webkit-appearance:button;}
+button:not(:disabled){cursor:pointer;}
+.display-3{font-size:calc(1.4301757813rem + 2.162109375vw);font-weight:400;line-height:1;}
+@media (min-width: 1200px){
+.display-3{font-size:3.0517578125rem;}
+}
+.row{--phoenix-gutter-x:2rem;--phoenix-gutter-y:0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-top:calc(-1*var(--phoenix-gutter-y));margin-left:calc(-0.5*var(--phoenix-gutter-x));margin-right:calc(-0.5*var(--phoenix-gutter-x));}
+.row>*{-ms-flex-negative:0;flex-shrink:0;width:100%;max-width:100%;padding-left:calc(var(--phoenix-gutter-x)*.5);padding-right:calc(var(--phoenix-gutter-x)*.5);margin-top:var(--phoenix-gutter-y);}
+.col-auto{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:auto;}
+.col-12{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:100%;}
+.g-3{--phoenix-gutter-x:1rem;}
+.g-3{--phoenix-gutter-y:1rem;}
+.g-7{--phoenix-gutter-x:3rem;}
+.g-7{--phoenix-gutter-y:3rem;}
+@media (min-width: 576px){
+.col-sm-4{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:33.33333333%;}
+}
+@media (min-width: 992px){
+.g-lg-11{--phoenix-gutter-x:5rem;}
+.g-lg-11{--phoenix-gutter-y:5rem;}
+}
+@media (min-width: 1540px){
+.col-xxl-3{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:25%;}
+}
+.btn{--phoenix-btn-padding-x:1.5rem;--phoenix-btn-padding-y:0.625rem;--phoenix-btn-font-size:0.8rem;--phoenix-btn-font-weight:700;--phoenix-btn-line-height:1.2;--phoenix-btn-color:var(--phoenix-body-color);--phoenix-btn-bg:transparent;--phoenix-btn-border-width:var(--phoenix-border-width);--phoenix-btn-border-color:transparent;--phoenix-btn-border-radius:var(--phoenix-border-radius);--phoenix-btn-hover-border-color:transparent;--phoenix-btn-box-shadow:initial;--phoenix-btn-disabled-opacity:0.3;--phoenix-btn-focus-box-shadow:0 0 0 0 rgba(var(--phoenix-btn-focus-shadow-rgb), .5);display:inline-block;padding:var(--phoenix-btn-padding-y) var(--phoenix-btn-padding-x);font-family:var(--phoenix-btn-font-family);font-size:var(--phoenix-btn-font-size);font-weight:var(--phoenix-btn-font-weight);line-height:var(--phoenix-btn-line-height);color:var(--phoenix-btn-color);text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:var(--phoenix-btn-border-width) solid var(--phoenix-btn-border-color);border-radius:var(--phoenix-btn-border-radius);background-color:var(--phoenix-btn-bg);-webkit-box-shadow:var(--phoenix-btn-box-shadow);box-shadow:var(--phoenix-btn-box-shadow);-webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;-o-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;}
+@media (prefers-reduced-motion: reduce){
+.btn{-webkit-transition:none;-o-transition:none;transition:none;}
+}
+.btn:hover{color:var(--phoenix-btn-hover-color);text-decoration:none;background-color:var(--phoenix-btn-hover-bg);border-color:var(--phoenix-btn-hover-border-color);}
+:not(.btn-check)+.btn:active{color:var(--phoenix-btn-active-color);background-color:var(--phoenix-btn-active-bg);border-color:var(--phoenix-btn-active-border-color);-webkit-box-shadow:var(--phoenix-btn-active-shadow);box-shadow:var(--phoenix-btn-active-shadow);}
+.btn:disabled{color:var(--phoenix-btn-disabled-color);pointer-events:none;background-color:var(--phoenix-btn-disabled-bg);border-color:var(--phoenix-btn-disabled-border-color);opacity:var(--phoenix-btn-disabled-opacity);-webkit-box-shadow:none;box-shadow:none;}
+.btn-outline-primary{--phoenix-btn-color:#3874ff;--phoenix-btn-border-color:#3874ff;--phoenix-btn-hover-color:#fff;--phoenix-btn-hover-bg:#3874ff;--phoenix-btn-hover-border-color:#3874ff;--phoenix-btn-focus-shadow-rgb:56, 116, 255;--phoenix-btn-active-color:#fff;--phoenix-btn-active-bg:#3874ff;--phoenix-btn-active-border-color:#3874ff;--phoenix-btn-active-shadow:initial;--phoenix-btn-disabled-color:#3874ff;--phoenix-btn-disabled-bg:transparent;--phoenix-btn-disabled-border-color:#3874ff;--phoenix-gradient:none;}
+.btn-lg{--phoenix-btn-padding-y:0.875rem;--phoenix-btn-padding-x:1.5rem;--phoenix-btn-font-size:1rem;--phoenix-btn-border-radius:0.375rem;}
+.breadcrumb{--phoenix-breadcrumb-padding-x:0;--phoenix-breadcrumb-padding-y:0;--phoenix-breadcrumb-margin-bottom:1rem;--phoenix-breadcrumb-font-size:0.8rem;--phoenix-breadcrumb-divider-color:var(--phoenix-secondary-color);--phoenix-breadcrumb-item-padding-x:0.5rem;--phoenix-breadcrumb-item-active-color:var(--phoenix-body-color);display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:var(--phoenix-breadcrumb-padding-y) var(--phoenix-breadcrumb-padding-x);margin-bottom:var(--phoenix-breadcrumb-margin-bottom);font-size:var(--phoenix-breadcrumb-font-size);list-style:none;background-color:var(--phoenix-breadcrumb-bg);border-radius:var(--phoenix-breadcrumb-border-radius);}
+.breadcrumb-item+.breadcrumb-item{padding-right:var(--phoenix-breadcrumb-item-padding-x);}
+.breadcrumb-item+.breadcrumb-item::before{float:right;padding-left:var(--phoenix-breadcrumb-item-padding-x);color:var(--phoenix-breadcrumb-divider-color);content:var(--phoenix-breadcrumb-divider, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='6' fill='%236e7891' viewBox='0 0 256 480'%3E%3Cpath d='M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z'/%3E%3C/svg%3E"));}
+.breadcrumb-item.active{color:var(--phoenix-breadcrumb-item-active-color);}
+.badge{--phoenix-badge-padding-x:0.711111em;--phoenix-badge-padding-y:0.355555em;--phoenix-badge-font-size:0.75em;--phoenix-badge-font-weight:700;--phoenix-badge-color:#fff;--phoenix-badge-border-radius:0.25rem;display:inline-block;padding:var(--phoenix-badge-padding-y) var(--phoenix-badge-padding-x);font-size:var(--phoenix-badge-font-size);font-weight:var(--phoenix-badge-font-weight);line-height:1;color:var(--phoenix-badge-color);text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:var(--phoenix-badge-border-radius);}
+.badge:empty{display:none;}
+.d-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;}
+.w-100{width:100%!important;}
+.align-items-center{-webkit-box-align:center!important;-ms-flex-align:center!important;align-items:center!important;}
+.me-2{margin-left:.5rem!important;}
+.mb-0{margin-bottom:0!important;}
+.mb-2{margin-bottom:.5rem!important;}
+.mb-4{margin-bottom:1.5rem!important;}
+.mb-6{margin-bottom:2.5rem!important;}
+.mb-7{margin-bottom:3rem!important;}
+.mb-9{margin-bottom:4rem!important;}
+.ms-1{margin-right:.25rem!important;}
+.ms-2{margin-right:.5rem!important;}
+.pe-3{padding-left:1rem!important;}
+.fs-8{font-size:1rem!important;}
+.fs-10{font-size:.64rem!important;}
+.fs-11{font-size:.512rem!important;}
+.fw-normal{font-weight:400!important;}
+.fw-bolder{font-weight:800!important;}
+.text-primary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-primary-rgb), var(--phoenix-text-opacity))!important;}
+.text-success{--phoenix-text-opacity:1;color:rgba(var(--phoenix-success-rgb), var(--phoenix-text-opacity))!important;}
+.text-white{--phoenix-text-opacity:1;color:rgba(var(--phoenix-white-rgb), var(--phoenix-text-opacity))!important;}
+.text-body{--phoenix-text-opacity:1;color:rgba(var(--phoenix-body-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-secondary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-secondary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-tertiary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-tertiary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-quaternary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-quaternary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-opacity-50{--phoenix-text-opacity:0.5;}
+@media (min-width: 576px){
+.mb-sm-5{margin-bottom:2rem!important;}
+}
+::placeholder{opacity:1;}
+::selection{background-color:var(--phoenix-primary);color:#fff;}
+button,.badge,.btn{font-family:var(--phoenix-font-sans-serif);}
+.stack-icon-item{margin-top:1px;}
+.btn{--phoenix-btn-padding-x:1.5rem;--phoenix-btn-padding-y:0.625rem;--phoenix-btn-font-size:0.8rem;--phoenix-btn-font-weight:700;--phoenix-btn-line-height:1.2;--phoenix-btn-color:var(--phoenix-body-color);--phoenix-btn-bg:transparent;--phoenix-btn-border-width:var(--phoenix-border-width);--phoenix-btn-border-color:transparent;--phoenix-btn-border-radius:var(--phoenix-border-radius);--phoenix-btn-hover-border-color:transparent;--phoenix-btn-box-shadow:initial;--phoenix-btn-disabled-opacity:0.3;--phoenix-btn-focus-box-shadow:0 0 0 0 rgba(var(--phoenix-btn-focus-shadow-rgb), .5);display:inline-block;padding:var(--phoenix-btn-padding-y) var(--phoenix-btn-padding-x);font-family:var(--phoenix-btn-font-family);font-size:var(--phoenix-btn-font-size);font-weight:var(--phoenix-btn-font-weight);line-height:var(--phoenix-btn-line-height);color:var(--phoenix-btn-color);text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:var(--phoenix-btn-border-width) solid var(--phoenix-btn-border-color);border-radius:var(--phoenix-btn-border-radius);background-color:var(--phoenix-btn-bg);-webkit-box-shadow:var(--phoenix-btn-box-shadow);box-shadow:var(--phoenix-btn-box-shadow);-webkit-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;-o-transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;}
+@media (prefers-reduced-motion: reduce){
+.btn{-webkit-transition:none;-o-transition:none;transition:none;}
+}
+.btn:hover{color:var(--phoenix-btn-hover-color);text-decoration:none;background-color:var(--phoenix-btn-hover-bg);border-color:var(--phoenix-btn-hover-border-color);}
+:not(.btn-check)+.btn:active{color:var(--phoenix-btn-active-color);background-color:var(--phoenix-btn-active-bg);border-color:var(--phoenix-btn-active-border-color);-webkit-box-shadow:var(--phoenix-btn-active-shadow);box-shadow:var(--phoenix-btn-active-shadow);}
+.btn:disabled{color:var(--phoenix-btn-disabled-color);pointer-events:none;background-color:var(--phoenix-btn-disabled-bg);border-color:var(--phoenix-btn-disabled-border-color);opacity:var(--phoenix-btn-disabled-opacity);-webkit-box-shadow:none;box-shadow:none;}
+.btn-outline-primary{--phoenix-btn-color:#3874ff;--phoenix-btn-border-color:#3874ff;--phoenix-btn-hover-color:#fff;--phoenix-btn-hover-bg:#3874ff;--phoenix-btn-hover-border-color:#3874ff;--phoenix-btn-focus-shadow-rgb:56, 116, 255;--phoenix-btn-active-color:#fff;--phoenix-btn-active-bg:#3874ff;--phoenix-btn-active-border-color:#3874ff;--phoenix-btn-active-shadow:initial;--phoenix-btn-disabled-color:#3874ff;--phoenix-btn-disabled-bg:transparent;--phoenix-btn-disabled-border-color:#3874ff;--phoenix-gradient:none;}
+.btn-lg{--phoenix-btn-padding-y:0.875rem;--phoenix-btn-padding-x:1.5rem;--phoenix-btn-font-size:1rem;--phoenix-btn-border-radius:0.375rem;}
+.content{min-height:100vh;padding:calc(var(--phoenix-navbar-top-height) + 2rem) 1.5rem 6.375rem 1.5rem;padding-bottom:6rem;}
+@media (min-width: 576px){
+.content{padding-bottom:4rem;}
+}
+.pricing-column-title-box{height:105px;}
+.fa-ul{margin-right:var(--fa-li-margin, 2.5em);}
+.fa-ul .fa-li{right:calc(var(--fa-li-width, 2em)*-1)!important;}
+h2{font-weight:800;}
+h3{font-weight:800;}
+@media (min-width: 992px){
+[data-navigation-type=horizontal] .navbar-top.navbar-expand-lg~.content{padding-right:2.5rem;padding-left:2.5rem;}
+}
+.breadcrumb{font-weight:700;}
+.badge-phoenix{text-transform:uppercase;padding:2px 8px;background-color:var(--phoenix-badge-bg);color:var(--phoenix-badge-color);border:1px solid var(--phoenix-badge-border-color);}
+.badge-phoenix-primary{--phoenix-badge-bg:var(--phoenix-primary-bg-subtle);--phoenix-badge-color:var(--phoenix-primary-text-emphasis);--phoenix-badge-border-color:var(--phoenix-primary-border-subtle);}
+/*! CSS Used from: https://meconect.app/css/theme.min.css */
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;}
+hr{margin:1rem 0;color:var(--phoenix-border-color-translucent);border:0;border-top:var(--phoenix-border-width) solid;opacity:1;}
+h5,h3,h2{margin-top:0;margin-bottom:0.25rem;font-weight:700;line-height:1;color:var(--phoenix-heading-color);}
+h2{font-size:calc(1.3203125rem + 0.84375vw);}
+@media (min-width: 1200px){
+h2{font-size:1.953125rem;}
+}
+h3{font-size:calc(1.28125rem + 0.375vw);}
+@media (min-width: 1200px){
+h3{font-size:1.5625rem;}
+}
+h5{font-size:1rem;}
+p{margin-top:0;margin-bottom:1rem;}
+ol,ul{padding-left:2rem;}
+ol,ul{margin-top:0;margin-bottom:1rem;}
+a{color:rgba(var(--phoenix-link-color-rgb), var(--phoenix-link-opacity, 1));text-decoration:none;}
+a:hover{--phoenix-link-color-rgb:var(--phoenix-link-hover-color-rgb);text-decoration:underline;}
+img,svg{vertical-align:middle;}
+button{border-radius:0;}
+button:focus:not(:focus-visible){outline:0;}
+button{margin:0;font-family:inherit;font-size:inherit;line-height:inherit;}
+button{text-transform:none;}
+button{-webkit-appearance:button;}
+button:not(:disabled){cursor:pointer;}
+.display-3{font-size:calc(1.4301757813rem + 2.162109375vw);font-weight:400;line-height:1;}
+@media (min-width: 1200px){
+.display-3{font-size:3.0517578125rem;}
+}
+.row{--phoenix-gutter-x:2rem;--phoenix-gutter-y:0;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-top:calc(-1 * var(--phoenix-gutter-y));margin-right:calc(-0.5 * var(--phoenix-gutter-x));margin-left:calc(-0.5 * var(--phoenix-gutter-x));}
+.row > *{-ms-flex-negative:0;flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--phoenix-gutter-x) * 0.5);padding-left:calc(var(--phoenix-gutter-x) * 0.5);margin-top:var(--phoenix-gutter-y);}
+.col-auto{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:auto;}
+.col-12{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:100%;}
+.g-3{--phoenix-gutter-x:1rem;}
+.g-3{--phoenix-gutter-y:1rem;}
+.g-7{--phoenix-gutter-x:3rem;}
+.g-7{--phoenix-gutter-y:0rem;}
+@media (min-width: 576px){
+.col-sm-4{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:33.33333333%;}
+}
+@media (min-width: 992px){
+.g-lg-11{--phoenix-gutter-x:5rem;}
+.g-lg-11{--phoenix-gutter-y:5rem;}
+}
+@media (min-width: 1540px){
+.col-xxl-3{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;width:25%;}
+}
+.btn{--phoenix-btn-padding-x:1.5rem;--phoenix-btn-padding-y:0.625rem;--phoenix-btn-font-size:0.8rem;--phoenix-btn-font-weight:700;--phoenix-btn-line-height:1.2;--phoenix-btn-color:var(--phoenix-body-color);--phoenix-btn-bg:transparent;--phoenix-btn-border-width:var(--phoenix-border-width);--phoenix-btn-border-color:transparent;--phoenix-btn-border-radius:var(--phoenix-border-radius);--phoenix-btn-hover-border-color:transparent;--phoenix-btn-box-shadow:initial;--phoenix-btn-disabled-opacity:0.3;--phoenix-btn-focus-box-shadow:0 0 0 0 rgba(var(--phoenix-btn-focus-shadow-rgb), 0.5);display:inline-block;padding:var(--phoenix-btn-padding-y) var(--phoenix-btn-padding-x);font-family:var(--phoenix-btn-font-family);font-size:var(--phoenix-btn-font-size);font-weight:var(--phoenix-btn-font-weight);line-height:var(--phoenix-btn-line-height);color:var(--phoenix-btn-color);text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:var(--phoenix-btn-border-width) solid var(--phoenix-btn-border-color);border-radius:var(--phoenix-btn-border-radius);background-color:var(--phoenix-btn-bg);-webkit-box-shadow:var(--phoenix-btn-box-shadow);box-shadow:var(--phoenix-btn-box-shadow);-webkit-transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;-o-transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;}
+@media (prefers-reduced-motion: reduce){
+.btn{-webkit-transition:none;-o-transition:none;transition:none;}
+}
+.btn:hover{color:var(--phoenix-btn-hover-color);text-decoration:none;background-color:var(--phoenix-btn-hover-bg);border-color:var(--phoenix-btn-hover-border-color);}
+:not(.btn-check) + .btn:active{color:var(--phoenix-btn-active-color);background-color:var(--phoenix-btn-active-bg);border-color:var(--phoenix-btn-active-border-color);-webkit-box-shadow:var(--phoenix-btn-active-shadow);box-shadow:var(--phoenix-btn-active-shadow);}
+.btn:disabled{color:var(--phoenix-btn-disabled-color);pointer-events:none;background-color:var(--phoenix-btn-disabled-bg);border-color:var(--phoenix-btn-disabled-border-color);opacity:var(--phoenix-btn-disabled-opacity);-webkit-box-shadow:none;box-shadow:none;}
+.btn-outline-primary{--phoenix-btn-color:#3874ff;--phoenix-btn-border-color:#3874ff;--phoenix-btn-hover-color:#fff;--phoenix-btn-hover-bg:#3874ff;--phoenix-btn-hover-border-color:#3874ff;--phoenix-btn-focus-shadow-rgb:56, 116, 255;--phoenix-btn-active-color:#fff;--phoenix-btn-active-bg:#3874ff;--phoenix-btn-active-border-color:#3874ff;--phoenix-btn-active-shadow:initial;--phoenix-btn-disabled-color:#3874ff;--phoenix-btn-disabled-bg:transparent;--phoenix-btn-disabled-border-color:#3874ff;--phoenix-gradient:none;}
+.btn-lg{--phoenix-btn-padding-y:0.875rem;--phoenix-btn-padding-x:1.5rem;--phoenix-btn-font-size:1rem;--phoenix-btn-border-radius:0.375rem;}
+.breadcrumb{--phoenix-breadcrumb-padding-x:0;--phoenix-breadcrumb-padding-y:0;--phoenix-breadcrumb-margin-bottom:1rem;--phoenix-breadcrumb-font-size:0.8rem;--phoenix-breadcrumb-divider-color:var(--phoenix-secondary-color);--phoenix-breadcrumb-item-padding-x:0.5rem;--phoenix-breadcrumb-item-active-color:var(--phoenix-body-color);display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:var(--phoenix-breadcrumb-padding-y) var(--phoenix-breadcrumb-padding-x);margin-bottom:var(--phoenix-breadcrumb-margin-bottom);font-size:var(--phoenix-breadcrumb-font-size);list-style:none;background-color:var(--phoenix-breadcrumb-bg);border-radius:var(--phoenix-breadcrumb-border-radius);}
+.breadcrumb-item + .breadcrumb-item{padding-left:var(--phoenix-breadcrumb-item-padding-x);}
+.breadcrumb-item + .breadcrumb-item::before{float:left;padding-right:var(--phoenix-breadcrumb-item-padding-x);color:var(--phoenix-breadcrumb-divider-color);content:var(     --phoenix-breadcrumb-divider,     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='10' width='6' fill='%236e7891' viewBox='0 0 256 480'%3E%3Cpath d='M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z'/%3E%3C/svg%3E")   );}
+.breadcrumb-item.active{color:var(--phoenix-breadcrumb-item-active-color);}
+.badge{--phoenix-badge-padding-x:0.711111em;--phoenix-badge-padding-y:0.355555em;--phoenix-badge-font-size:0.75em;--phoenix-badge-font-weight:700;--phoenix-badge-color:#fff;--phoenix-badge-border-radius:0.25rem;display:inline-block;padding:var(--phoenix-badge-padding-y) var(--phoenix-badge-padding-x);font-size:var(--phoenix-badge-font-size);font-weight:var(--phoenix-badge-font-weight);line-height:1;color:var(--phoenix-badge-color);text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:var(--phoenix-badge-border-radius);}
+.badge:empty{display:none;}
+.d-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;}
+.w-100{width:100%!important;}
+.align-items-center{-webkit-box-align:center!important;-ms-flex-align:center!important;align-items:center!important;}
+.me-2{margin-right:0.5rem!important;}
+.mb-0{margin-bottom:0!important;}
+.mb-2{margin-bottom:0.5rem!important;}
+.mb-4{margin-bottom:1.5rem!important;}
+.mb-6{margin-bottom:0.5rem!important;}
+.mb-7{margin-bottom:1rem!important;}
+.mb-9{margin-bottom:0rem!important;}
+.ms-1{margin-left:0.25rem!important;}
+.ms-2{margin-left:0.5rem!important;}
+.pe-3{padding-right:1rem!important;}
+.fs-8{font-size:1rem!important;}
+.fs-10{font-size:0.64rem!important;}
+.fs-11{font-size:0.512rem!important;}
+.fw-normal{font-weight:400!important;}
+.fw-bolder{font-weight:800!important;}
+.text-primary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-primary-rgb), var(--phoenix-text-opacity))!important;}
+.text-success{--phoenix-text-opacity:1;color:rgba(var(--phoenix-success-rgb), var(--phoenix-text-opacity))!important;}
+.text-white{--phoenix-text-opacity:1;color:rgba(var(--phoenix-white-rgb), var(--phoenix-text-opacity))!important;}
+.text-body{--phoenix-text-opacity:1;color:rgba(var(--phoenix-body-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-secondary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-secondary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-tertiary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-tertiary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-body-quaternary{--phoenix-text-opacity:1;color:rgba(var(--phoenix-quaternary-color-rgb), var(--phoenix-text-opacity))!important;}
+.text-opacity-50{--phoenix-text-opacity:0.5;}
+@media (min-width: 576px){
+.mb-sm-5{margin-bottom:2rem!important;}
+}
+::placeholder{opacity:1;}
+::selection{background-color:var(--phoenix-primary);color:#fff;}
+button,.badge,.btn{font-family:var(--phoenix-font-sans-serif);}
+.stack-icon-item{margin-top:1px;}
+.btn{--phoenix-btn-padding-x:1.5rem;--phoenix-btn-padding-y:0.625rem;--phoenix-btn-font-size:0.8rem;--phoenix-btn-font-weight:700;--phoenix-btn-line-height:1.2;--phoenix-btn-color:var(--phoenix-body-color);--phoenix-btn-bg:transparent;--phoenix-btn-border-width:var(--phoenix-border-width);--phoenix-btn-border-color:transparent;--phoenix-btn-border-radius:var(--phoenix-border-radius);--phoenix-btn-hover-border-color:transparent;--phoenix-btn-box-shadow:initial;--phoenix-btn-disabled-opacity:0.3;--phoenix-btn-focus-box-shadow:0 0 0 0 rgba(var(--phoenix-btn-focus-shadow-rgb), 0.5);display:inline-block;padding:var(--phoenix-btn-padding-y) var(--phoenix-btn-padding-x);font-family:var(--phoenix-btn-font-family);font-size:var(--phoenix-btn-font-size);font-weight:var(--phoenix-btn-font-weight);line-height:var(--phoenix-btn-line-height);color:var(--phoenix-btn-color);text-align:center;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:var(--phoenix-btn-border-width) solid var(--phoenix-btn-border-color);border-radius:var(--phoenix-btn-border-radius);background-color:var(--phoenix-btn-bg);-webkit-box-shadow:var(--phoenix-btn-box-shadow);box-shadow:var(--phoenix-btn-box-shadow);-webkit-transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;-o-transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;transition:color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;}
+@media (prefers-reduced-motion: reduce){
+.btn{-webkit-transition:none;-o-transition:none;transition:none;}
+}
+.btn:hover{color:var(--phoenix-btn-hover-color);text-decoration:none;background-color:var(--phoenix-btn-hover-bg);border-color:var(--phoenix-btn-hover-border-color);}
+:not(.btn-check) + .btn:active{color:var(--phoenix-btn-active-color);background-color:var(--phoenix-btn-active-bg);border-color:var(--phoenix-btn-active-border-color);-webkit-box-shadow:var(--phoenix-btn-active-shadow);box-shadow:var(--phoenix-btn-active-shadow);}
+.btn:disabled{color:var(--phoenix-btn-disabled-color);pointer-events:none;background-color:var(--phoenix-btn-disabled-bg);border-color:var(--phoenix-btn-disabled-border-color);opacity:var(--phoenix-btn-disabled-opacity);-webkit-box-shadow:none;box-shadow:none;}
+.btn-outline-primary{--phoenix-btn-color:#3874ff;--phoenix-btn-border-color:#3874ff;--phoenix-btn-hover-color:#fff;--phoenix-btn-hover-bg:#3874ff;--phoenix-btn-hover-border-color:#3874ff;--phoenix-btn-focus-shadow-rgb:56, 116, 255;--phoenix-btn-active-color:#fff;--phoenix-btn-active-bg:#3874ff;--phoenix-btn-active-border-color:#3874ff;--phoenix-btn-active-shadow:initial;--phoenix-btn-disabled-color:#3874ff;--phoenix-btn-disabled-bg:transparent;--phoenix-btn-disabled-border-color:#3874ff;--phoenix-gradient:none;}
+.btn-lg{--phoenix-btn-padding-y:0.875rem;--phoenix-btn-padding-x:1.5rem;--phoenix-btn-font-size:1rem;--phoenix-btn-border-radius:0.375rem;}
+.content{min-height:100vh;padding:calc(var(--phoenix-navbar-top-height) + 2rem) 1.5rem 6.375rem 1.5rem;padding-bottom:6rem;}
+@media (min-width: 576px){
+.content{padding-bottom:4rem;}
+}
+.pricing-column-title-box{height:105px;}
+.fa-ul{margin-left:var(--fa-li-margin, 2.5em);}
+.fa-ul .fa-li{left:calc(var(--fa-li-width, 2em) * -1)!important;}
+h2{font-weight:800;}
+h3{font-weight:800;}
+@media (min-width: 992px){
+[data-navigation-type="horizontal"] .navbar-top.navbar-expand-lg ~ .content{padding-left:2.5rem;padding-right:2.5rem;}
+}
+.breadcrumb{font-weight:700;}
+.badge-phoenix{text-transform:uppercase;padding:2px 8px;background-color:var(--phoenix-badge-bg);color:var(--phoenix-badge-color);border:1px solid var(--phoenix-badge-border-color);}
+.badge-phoenix-primary{--phoenix-badge-bg:var(--phoenix-primary-bg-subtle);--phoenix-badge-color:var(--phoenix-primary-text-emphasis);--phoenix-badge-border-color:var(--phoenix-primary-border-subtle);}
+/*! CSS Used from: https://meconect.app/css/style.css */
+.active{display:block;}
+</style>
+<section class="pt-200 pb-80 lg:pb-176" id="how-it-works" style="padding-top: 90px;padding-bottom: 90px;">
+<div class="flex flex-col max-w-1336 gap-80 mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<h2 class="max-lg:max-w-576 mx-auto text-3xl lg:text-4xl font-black font-lexia-ads lg:text-center">Nossos <span class="text-doladoBlue">planos</span></h2>
+<div class="row g-7 g-lg-11 mb-7">
+<div class="col-12 col-sm-4 col-xxl-3">
+<img alt="" class="mb-4 d-dark-none" height="96" src="https://meconect.app/img/13.png" width="120"/>
+<div class="mb-sm-5 pricing-column-title-box">
+<h3 class="mb-2">PLANO BÁSICO</h3>
+<p class="text-body-secondary mb-0 pe-3" style="padding: 0px !important;">Para pessoas interessadas em experimentar primeiro.</p>
+</div>
+<div class="d-flex align-items-center mb-4">
+<h3 class="display-3 fw-bolder">R$ 29,90</h3>
+<h5 class="fs-8 fw-normal ms-1">/ mês</h5>
+</div>
+<a class="btn btn-lg w-100 mb-6 btn-outline-primary" href="/register/" style="background-color: #0067d7;color: #fff;">Assinar</a>
+<h5 class="mb-4" style="margin: 7px;">O que está incluído</h5>
+<ul class="fa-ul" style="--fa-li-margin: 1.5em;">
+<li class="text-body-secondary mb-2">
+<span class="fa-li">
+<svg aria-hidden="true" class="svg-inline--fa fa-check text-primary" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-check text-primary"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+          10 anuncios
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          conectar 1 conta do mercado livre
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao catálogo completo
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-body-quaternary text-opacity-50" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-body-quaternary text-opacity-50"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-xmark fa-stack-1x fa-inverse text-body-tertiary" data-fa-i2svg="" data-icon="xmark" data-prefix="fas" focusable="false" role="img" viewbox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-times text-body-tertiary"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao fullfilment
+        </li>
+</ul>
+</div>
+<div class="col-12 col-sm-4 col-xxl-3">
+<img alt="" class="mb-4 d-dark-none" height="96" src="https://meconect.app/img/14.png" width="120"/>
+<div class="mb-sm-5 pricing-column-title-box">
+<h3 class="mb-2">PLANO PREMIUM</h3>
+<p class="text-body-secondary mb-0 pe-3" style="padding: 0px !important;">Para empresa que precisam de mais variedades.</p>
+</div>
+<div class="d-flex align-items-center mb-4">
+<h3 class="display-3 fw-bolder">R$ 49,90</h3>
+<h5 class="fs-8 fw-normal ms-1">/ mês</h5>
+</div>
+<a class="btn btn-lg w-100 mb-6 btn-outline-primary" href="/register/" style="background-color: #0067d7;color: #fff;">Assinar</a>
+<h5 class="mb-4" style="margin: 7px;">O que está incluído</h5>
+<ul class="fa-ul" style="--fa-li-margin: 1.5em;">
+<li class="text-body-secondary mb-2">
+<span class="fa-li">
+<svg aria-hidden="true" class="svg-inline--fa fa-check text-primary" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-check text-primary"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+          20 anuncios
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          conectar até 2 contas do mercado livre
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao catálogo completo
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-body-quaternary text-opacity-50" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-body-quaternary text-opacity-50"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-xmark fa-stack-1x fa-inverse text-body-tertiary" data-fa-i2svg="" data-icon="xmark" data-prefix="fas" focusable="false" role="img" viewbox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-times text-body-tertiary"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao fullfilment
+        </li>
+</ul>
+</div>
+<div class="col-12 col-sm-4 col-xxl-3">
+<img alt="" class="mb-4 d-dark-none" height="96" src="https://meconect.app/img/15.png" width="120"/>
+<div class="mb-sm-5 pricing-column-title-box">
+<h3 class="mb-2">PLANO VIP</h3>
+<p class="text-body-secondary mb-0 pe-3" style="padding: 0px !important;">Para equipes que precisam gerenciar o trabalho entre iniciativas.</p>
+</div>
+<div class="d-flex align-items-center mb-4">
+<h3 class="display-3 fw-bolder">R$ 69,90</h3>
+<h5 class="fs-8 fw-normal ms-1">/ mês</h5>
+</div>
+<a class="btn btn-lg w-100 mb-6 btn-outline-primary" href="/register/" style="background-color: #0067d7;color: #fff;">Assinar</a>
+<h5 class="mb-4" style="margin: 7px;">O que está incluído</h5>
+<ul class="fa-ul" style="--fa-li-margin: 1.5em;">
+<li class="text-body-secondary mb-2">
+<span class="fa-li">
+<svg aria-hidden="true" class="svg-inline--fa fa-check text-primary" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-check text-primary"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+          50 anuncios
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          conectar até 5 contas do mercado livre
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao catálogo completo
+        </li>
+<li class="mb-2 text-body">
+<span class="fa-li me-2 stack-icon-item">
+<span class="fa-stack fs-11" style="margin-right: 17px !important;">
+<svg aria-hidden="true" class="svg-inline--fa fa-circle fa-stack-2x text-success" data-fa-i2svg="" data-icon="circle" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-circle fa-stack-2x text-success"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+<svg aria-hidden="true" class="svg-inline--fa fa-check fa-stack-1x fa-inverse text-white dark__text-dark" data-fa-i2svg="" data-icon="check" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z" fill="currentColor"></path>
+</svg>
+ &lt;span class="fas fa-stack-1x fa-inverse fa-check text-white dark__text-dark"&gt;&lt;/span&gt; Font Awesome fontawesome.com 
+</span>
+</span>
+          acesso ao fullfilment
+        </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-gradient-to-l relative lg:py-112 py-80 to-darkNavy from-darkNavy-700" id="faq" style="background: #044fc9;">
+<div class="max-w-640 mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<h2 class="mb-40 text-2xl md:text-5xl text-olive text-center font-lexia-ads font-black">Perguntas frequentes</h2>
+<details class="border-b border-b-darkNavy-400 group">
+<summary class="flex md:text-lg text-base font-medium text-lightGrey-50 py-24 md:px-24 justify-between marker:content-[''] gap-8 items-start cursor-pointer">
+                 O que é a MLink?
+                  <div class="pt-2">
+<svg class="text-olive h-24 w-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>AddLinear</title>
+<path d="M6 12H18" stroke="currentColor"></path>
+<path d="M12 18V6" stroke="currentColor"></path>
+</svg>
+</div>
+</summary>
+<div class="max-h-0 text-sm text-lightGrey-50 pb-24 md:px-24 overflow-hidden" style="min-height: 120px;">
+                 A MLink é uma plataforma que conecta vendedores e fornecedores, facilitando a compra e venda de produtos integrados ao Mercado Livre. Nossa missão é simplificar a logística e melhorar a eficiência das operações comerciais para ambas as partes.
+                </div>
+</details>
+<details class="border-b border-b-darkNavy-400 group">
+<summary class="flex md:text-lg text-base font-medium text-lightGrey-50 py-24 md:px-24 justify-between marker:content-[''] gap-8 items-start cursor-pointer">
+                  Como a MLink ajuda os vendedores?
+                  <div class="pt-2">
+<svg class="text-olive h-24 w-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>AddLinear</title>
+<path d="M6 12H18" stroke="currentColor"></path>
+<path d="M12 18V6" stroke="currentColor"></path>
+</svg>
+</div>
+</summary>
+<div class="max-h-0 text-sm text-lightGrey-50 pb-24 md:px-24 overflow-hidden" style="min-height: 120px;">
+                  A MLink oferece uma operação logística eficiente para os vendedores. Cuidamos de toda a operação, desde a emissão de notas fiscais até a separação e envio dos pedidos diretamente para os clientes, permitindo que os vendedores se concentrem em aumentar suas vendas sem se preocupar com a logística.
+                </div>
+</details>
+<details class="border-b border-b-darkNavy-400 group">
+<summary class="flex md:text-lg text-base font-medium text-lightGrey-50 py-24 md:px-24 justify-between marker:content-[''] gap-8 items-start cursor-pointer">
+                  Como funciona o processo de compra e expedição na MLink?
+                  <div class="pt-2">
+<svg class="text-olive h-24 w-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>AddLinear</title>
+<path d="M6 12H18" stroke="currentColor"></path>
+<path d="M12 18V6" stroke="currentColor"></path>
+</svg>
+</div>
+</summary>
+<div class="max-h-0 text-sm text-lightGrey-50 pb-24 md:px-24 overflow-hidden" style="min-height: 120px;">
+                 Quando um consumidor final realiza uma compra no Mercado Livre, o pagamento é processado e a MLink recebe o pedido. O vendedor confirma as informações do produto e faz o pagamento ao fornecedor através da plataforma. O fornecedor, então, expede o produto diretamente para o cliente, sem passar pelo estoque da MLink.
+                </div>
+</details>
+<details class="border-b border-b-darkNavy-400 group">
+<summary class="flex md:text-lg text-base font-medium text-lightGrey-50 py-24 md:px-24 justify-between marker:content-[''] gap-8 items-start cursor-pointer">
+                  Preciso de CNPJ ou posso usar meu CPF?
+                  <div class="pt-2">
+<svg class="text-olive h-24 w-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>AddLinear</title>
+<path d="M6 12H18" stroke="currentColor"></path>
+<path d="M12 18V6" stroke="currentColor"></path>
+</svg>
+</div>
+</summary>
+<div class="max-h-0 text-sm text-lightGrey-50 pb-24 md:px-24 overflow-hidden" style="min-height: 120px;">
+                  Para ser um parceiro mlink é preciso ter um CNPJ ativo, Inscrição Estadual e Certificado Digital para emitir nota fiscal de venda. Caso você ainda não tenha um cadastro nacional de pessoa jurídica, nós recomendamos a
+                  abertura de uma MEI.
+                </div>
+</details>
+<details class="border-b border-b-darkNavy-400 group">
+<summary class="flex md:text-lg text-base font-medium text-lightGrey-50 py-24 md:px-24 justify-between marker:content-[''] gap-8 items-start cursor-pointer">
+                 A MLink oferece integração com outros marketplaces além do Mercado Livre?
+                  <div class="pt-2">
+<svg class="text-olive h-24 w-24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<title>AddLinear</title>
+<path d="M6 12H18" stroke="currentColor"></path>
+<path d="M12 18V6" stroke="currentColor"></path>
+</svg>
+</div>
+</summary>
+<div class="max-h-0 text-sm text-lightGrey-50 pb-24 md:px-24 overflow-hidden" style="min-height: 120px;">
+                 Atualmente, a MLink é integrada principalmente ao Mercado Livre. Estamos sempre trabalhando para expandir nossas integrações e oferecer mais opções para nossos parceiros.
+                </div>
+</details>
+</div>
+</section>
+</main>
+<footer class="bg-darkNavy w-full py-80 text-darkNavy-400">
+<div class="space-y-40 max-w-1336 mx-auto xl:w-full-minus-288 lg:w-full-minus-160 w-full-minus-48">
+<div class="flex flex-col lg:flex-row justify-between items-center gap-40">
+<img alt="meconect" class="object-contain" height="44" src="https://meconect.app//img/logo-meconect2.svg" width="121"/>
+<nav class="space-x-16">
+<div class="flex gap-16">
+<a href="https://www.facebook.com/meconect" target="_blank">
+<svg class="h-30 w-30 hover:text-white text-darkNavy-400" fill="currentColor" stroke="none" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<title>Facebook</title>
+<path clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM17.4901 9.55488C17.8872 9.55488 18.5186 9.62473 18.9861 9.71823L19.4063 7.07713C18.4949 6.89013 17.7937 6.74988 16.8356 6.74988C14.0779 6.74988 12.9795 8.05888 12.9795 10.3958V12.1019H11.2498V14.8602H12.9795V23.2499H16.345V14.8602H18.7985L19.0328 12.1019H16.345V10.7704C16.345 10.0224 16.4148 9.55488 17.4901 9.55488Z" fill-rule="evenodd" id="Subtract"></path>
+</svg>
+</a>
+<a href="https://www.instagram.com/me_conect?igsh=ZThwcTd4a3cxcHNz" target="_blank">
+<svg class="h-30 w-30 hover:text-white text-darkNavy-400" fill="currentColor" stroke="none" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<title>Instagram</title>
+<path clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM18.6367 7.67409C17.6876 7.63079 17.403 7.62161 14.9999 7.62161C12.5968 7.62161 12.3121 7.63079 11.3631 7.67409C10.4856 7.71411 10.0091 7.86072 9.69195 7.98398C9.27185 8.14724 8.97204 8.34227 8.65712 8.65722C8.34216 8.97214 8.14714 9.27195 7.98387 9.69204C7.86062 10.0092 7.714 10.4857 7.67399 11.3632C7.63069 12.3122 7.62151 12.5969 7.62151 15C7.62151 17.4031 7.63069 17.6877 7.67399 18.6367C7.714 19.5142 7.86062 19.9908 7.98387 20.3079C8.14714 20.728 8.3422 21.0278 8.65712 21.3427C8.97204 21.6577 9.27185 21.8527 9.69195 22.016C10.0091 22.1392 10.4856 22.2858 11.3631 22.3258C12.312 22.3691 12.5966 22.3783 14.9999 22.3783C17.4032 22.3783 17.6878 22.3691 18.6367 22.3258C19.5142 22.2858 19.9907 22.1392 20.3078 22.016C20.7279 21.8527 21.0277 21.6577 21.3427 21.3427C21.6576 21.0278 21.8526 20.728 22.0159 20.3079C22.1392 19.9908 22.2858 19.5142 22.3258 18.6367C22.3691 17.6877 22.3783 17.4031 22.3783 15C22.3783 12.5969 22.3691 12.3122 22.3258 11.3632C22.2858 10.4857 22.1392 10.0092 22.0159 9.69204C21.8526 9.27195 21.6576 8.97214 21.3427 8.65719C21.0277 8.34227 20.7279 8.14724 20.3078 7.98398C19.9907 7.86072 19.5142 7.71411 18.6367 7.67409ZM11.2892 6.05416C12.2491 6.01036 12.5556 6 14.9999 6C17.4441 6 17.7506 6.01036 18.7106 6.05416C19.6685 6.09785 20.3228 6.25001 20.8952 6.47247C21.4871 6.70247 21.989 7.01021 22.4893 7.51054C22.9897 8.01091 23.2974 8.51282 23.5274 9.10465C23.7499 9.67711 23.902 10.3314 23.9457 11.2893C23.9895 12.2492 23.9999 12.5557 23.9999 15C23.9999 17.4442 23.9895 17.7507 23.9457 18.7106C23.902 19.6686 23.7499 20.3228 23.5274 20.8953C23.2974 21.4871 22.9897 21.989 22.4893 22.4894C21.989 22.9897 21.4871 23.2975 20.8952 23.5274C20.3228 23.7499 19.6685 23.9021 18.7106 23.9458C17.7506 23.9896 17.4441 23.9999 14.9999 23.9999C12.5556 23.9999 12.2491 23.9896 11.2892 23.9458C10.3313 23.9021 9.67701 23.7499 9.10455 23.5274C8.51272 23.2975 8.01081 22.9897 7.51044 22.4894C7.0101 21.989 6.70236 21.4871 6.4724 20.8953C6.2499 20.3228 6.09774 19.6686 6.05405 18.7106C6.01025 17.7507 5.99989 17.4442 5.99989 15C5.99989 12.5557 6.01025 12.2492 6.05405 11.2893C6.09774 10.3314 6.2499 9.67711 6.4724 9.10465C6.70236 8.51282 7.0101 8.01091 7.51044 7.51054C8.01081 7.01021 8.51272 6.70247 9.10455 6.47247C9.67701 6.25001 10.3313 6.09785 11.2892 6.05416ZM15.0041 10.3824C12.4516 10.3824 10.3825 12.4516 10.3825 15.004C10.3825 17.5565 12.4516 19.6257 15.0041 19.6257C17.5566 19.6257 19.6257 17.5565 19.6257 15.004C19.6257 12.4516 17.5566 10.3824 15.0041 10.3824ZM15.0041 18.004C13.3473 18.004 12.0041 16.6609 12.0041 15.004C12.0041 13.3472 13.3473 12.0041 15.0041 12.0041C16.661 12.0041 18.0041 13.3472 18.0041 15.004C18.0041 16.6609 16.661 18.004 15.0041 18.004ZM19.8077 11.2772C20.4042 11.2772 20.8877 10.7937 20.8877 10.1973C20.8877 9.60079 20.4042 9.11725 19.8077 9.11725C19.2112 9.11725 18.7277 9.60079 18.7277 10.1973C18.7277 10.7937 19.2112 11.2772 19.8077 11.2772Z" fill-rule="evenodd" id="Subtract"></path>
+</svg>
+</a>
+<a href="https://www.youtube.com/@MeConectOFICIAL" target="_blank">
+<svg class="h-30 w-30 hover:text-white text-darkNavy-400" fill="currentColor" stroke="none" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<title>Youtube</title>
+<path d="M12.6429 18.1428L18.9286 15L12.6429 11.8571V18.1428Z"></path>
+<path clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM4.19211 10.2394C4.2931 8.68465 5.5431 7.4662 7.09922 7.3891C9.35259 7.27746 12.5733 7.14282 15 7.14282C17.4267 7.14282 20.6474 7.27746 22.9008 7.3891C24.4569 7.4662 25.7069 8.68465 25.8079 10.2394C25.9046 11.729 26 13.5618 26 15C26 16.4381 25.9046 18.271 25.8079 19.7605C25.7069 21.3153 24.4569 22.5337 22.9008 22.6108C20.6474 22.7225 17.4267 22.8571 15 22.8571C12.5733 22.8571 9.35259 22.7225 7.09922 22.6108C5.5431 22.5337 4.2931 21.3153 4.19211 19.7605C4.09536 18.271 4 16.4381 4 15C4 13.5618 4.09536 11.729 4.19211 10.2394Z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/" target="_blank">
+<svg class="h-30 w-30 hover:text-white text-darkNavy-400" fill="currentColor" stroke="none" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<title>Linkedin</title>
+<path clip-rule="evenodd" d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM11.0813 7.71291C11.0813 8.64673 10.3703 9.40245 9.25838 9.40245C8.18978 9.40245 7.47875 8.64673 7.50076 7.71291C7.47875 6.73371 8.18976 6 9.27967 6C10.3703 6 11.06 6.73371 11.0813 7.71291ZM7.59015 21.6136V10.7372H10.9706V21.6136H7.59015ZM13.5905 10.7387C13.6352 11.6952 13.6799 12.8518 13.6799 14.2085H13.6813V21.6158H17.0618V15.3431C17.0618 15.0309 17.1058 14.7201 17.1952 14.4973C17.4173 13.875 17.9729 13.23 18.9074 13.23C20.1307 13.23 20.6196 14.1858 20.6196 15.5879V21.6158H24.0001V15.1643C24.0001 11.9627 22.3319 10.4946 20.108 10.4946C18.3064 10.4946 17.1945 11.5391 16.7496 12.2288H16.6829L16.5268 10.7387H13.5905Z" fill-rule="evenodd" id="Subtract"></path>
+</svg>
+</a>
+</div>
+</nav>
+</div>
+<hr class="w-full border-darkNavy-400"/>
+<p class="text-center">© 2024 – MLink Tecnologia LTDA. Todos os direitos reservados. CNPJ 53.665.813/0001-67</p>
+<p style="text-align: center;"><a href="/termos-de-uso/" style="color: #fff;">Termos de Uso</a></p>
+</div>
+<a class="float" href="https://api.whatsapp.com/send?phone=5511992390900" target="_blank">
+<i class="fab fa-whatsapp my-float"></i>
+</a>
+</footer>
+</div>
+</div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8a4608d0ebb72646',t:'MTcyMTE3NTI5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
